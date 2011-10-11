@@ -1,4 +1,8 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.09 - 11th October 2011
+ - refactor template variable creation to help make testing easier
+ - fixed a bug with methods_covered being set improperly to methods
+
 Release 0.08 - 11th October 2011
  - first stable release
