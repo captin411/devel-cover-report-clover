@@ -18,4 +18,5 @@ provides:
     version: 0.64
 requires:
   Devel::Cover: 0.64
+  Template: 0
 version: 0.64

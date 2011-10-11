@@ -6,6 +6,7 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Devel/Cover/Report/Clover.pm',
           'PREREQ_PM' => {
                            'Devel::Cover' => '0.64',
+                           'Template' => 0,
                            'Test::More' => 0
                          },
           'INSTALLDIRS' => 'site',

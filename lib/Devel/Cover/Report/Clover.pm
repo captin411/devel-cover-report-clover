@@ -6,12 +6,66 @@ use warnings;
 our $VERSION = "0.64";
 
 use Devel::Cover::DB 0.64;
+use Template;
+use File::Basename qw(dirname);
+use Getopt::Long;
 
 # Entry point which C<cover> uses
 sub report {
-    my ($pkg, $db, $options) = @_;
+    my ( $pkg, $db, $options ) = @_;
+
+    my $tt = Template->new(
+        {   INCLUDE_PATH => tt_include_path(),
+            DEBUG        => 0,
+        }
+    );
+
+    my $vars = {
+        version   => $VERSION,
+        generated => time(),
+
+        db      => $db,
+        options => $options
+    };
+
+    printf( "Writing clover output file to '%s'...", output_file($options) )
+        unless $options->{silent};
+
+    $tt->process( template(), $vars, output_file($options) ) || die $tt->error();
+
 }
 
+#extend the options for the C<cover> command line
+sub get_options {
+    my ( $self, $opt ) = @_;
+    $opt->{option}{outputfile} = "clover.xml";
+    die "Invalid command line options"
+        unless GetOptions(
+                $opt->{option},
+                qw(
+                    outputfile=s
+                    )
+        );
+}
+
+sub output_file {
+    my ($options) = @_;
+
+    return sprintf( '%s/%s', $options->{outputdir}, $options->{option}{outputfile} );
+
+}
+
+sub template {
+    return 'clover.tt';
+}
+
+sub tt_file {
+    return sprintf( "%s/%s", tt_include_path(), template() );
+}
+
+sub tt_include_path {
+    return sprintf( '%s/Clover', dirname(__FILE__) );
+}
 
 1;
 
