@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <coverage generated="[% generated | xml %]" clover="[% version | xml %]" >
-  <project timestamp="[% generated | xml %]" name="Devel::Cover::Report::Clover">
+  <project timestamp="[% generated | xml %]" name="[% project_name | xml %]">
     <metrics packages="[% files.size %]" elements="[% total.elements %]" coveredelements="[% total.elements_covered %]" statements="[% total.statements %]" coveredstatements="[% total.statements_covered %]" complexity="[% total.complexity %]" files="[% files.size %]" loc="[% total.loc %]" ncloc="[% total.ncloc %]" classes="[% total.classes %]" conditionals="[% total.conditionals %]" coveredconditionals="[% total.conditionals_covered %]" methods="[% total.methods %]" coveredmethods="[% total.methods_covered %]"/>
 [%- 
     FOREACH file IN files.keys;
@@ -11,8 +11,5 @@
     </package>
 [% END -%]
   </project>
-  <testproject timestamp="[% generated | xml %]" name="Devel::Cover::Report::Clover">
-    <metrics coveredelements="0" packages="0" coveredconditionals="0" ncloc="0" statements="0" loc="0" complexity="0" files="0" conditionals="0" coveredstatements="0" coveredmethods="0" methods="0" classes="0" elements="0"/>
-  </testproject>
 </coverage>
 

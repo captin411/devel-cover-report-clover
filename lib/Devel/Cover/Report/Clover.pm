@@ -32,12 +32,14 @@ sub report {
 #extend the options for the C<cover> command line
 sub get_options {
     my ( $self, $opt ) = @_;
-    $opt->{option}{outputfile} = "clover.xml";
+    $opt->{option}{outputfile}  = "clover.xml";
+    $opt->{option}{projectname} = "Devel::Cover::Report::Clover";
     die "Invalid command line options"
         unless GetOptions(
         $opt->{option},
         qw(
             outputfile=s
+            projectname=s
             )
         );
 }
@@ -70,9 +72,10 @@ sub template_variables {
     my ( $db, $options ) = @_;
 
     my $v = {
-        version   => $VERSION,
-        generated => time(),
-        total     => map_db_summary( $db->summary('Total') ),
+        project_name => $options->{option}{projectname},
+        version      => $VERSION,
+        generated    => time(),
+        total        => map_db_summary( $db->summary('Total') ),
     };
 
     my @items = $db->cover->items;
