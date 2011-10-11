@@ -1,7 +1,8 @@
 Build.PL
+Makefile.PL
+INSTALL
 lib/Devel/Cover/Report/Clover.pm
 MANIFEST			This list of files
 README
 t/00.load.t
-Makefile.PL
 META.yml
