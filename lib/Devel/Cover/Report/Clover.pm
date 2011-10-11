@@ -5,7 +5,7 @@ use warnings;
 
 our $VERSION = "0.64";
 
-use Devel::Cover::DB 0.64;
+use Devel::Cover::DB;
 use Template;
 use File::Basename qw(dirname);
 use Getopt::Long;

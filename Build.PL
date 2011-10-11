@@ -5,7 +5,7 @@ my $build = Module::Build->new(
     create_readme      => 'README',
     licence            => 'perl',
     requires           => {
-        'Devel::Cover' => '0.64',
+        'Devel::Cover' => 0,
         'Template'     => 0,
     },
     build_requires => { 'Test::More'         => '0', },
