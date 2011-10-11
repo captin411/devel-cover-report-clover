@@ -1,0 +1,12 @@
+_build
+Devel-Cover-Report-Clover-*
+blib
+inc
+pm_to_blib
+MANIFEST
+META.yml
+cover_db
+MANIFEST.bak
+MANIFEST.SKIP.bak
+Makefile
+Build

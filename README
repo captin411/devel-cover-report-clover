@@ -1,0 +1,33 @@
+NAME
+    Devel::Cover::Report::Clover - Backend for Clover reporting of coverage
+    statistics
+
+SYNOPSIS
+     cover -report clover
+
+DESCRIPTION
+    This module generates a Clover compatible coverage xml file which can be
+    used in a variety of continuous integration software offerings.
+
+    It is designed to be called from the "cover" program distributed with
+    Devel::Cover.
+
+SEE ALSO
+     L<Devel::Cover>
+     L<http://www.atlassian.com/software/clover/>
+
+BUGS
+    <https://github.com/captin411/Devel-Cover-Report-Clover/issues>
+
+AUTHOR
+    David Bartle <captindave@gmail.com>
+
+LICENSE
+    Copyright 2011, David Bartle (captindave@gmail.com)
+
+    This software is free. It is licensed under the same terms as Perl
+    itself.
+
+    The latest version of this software should be available on github.com
+    https://github.com/captin411/Devel-Cover-Report-Clover
+
