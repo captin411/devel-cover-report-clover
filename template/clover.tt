@@ -6,9 +6,9 @@
     FOREACH file IN files.keys;
         SET f = files.item(file);
 %]
-    <package name="[% file | xml %]">
+    <file path="[% f.abs_path | xml %]" name="[% f.short_name | xml %]">
       <metrics elements="[% f.elements %]" coveredelements="[% f.elements_covered %]" statements="[% f.statements %]" coveredstatements="[% f.statements_covered %]" complexity="[% f.complexity %]" files="1" loc="[% f.loc %]" ncloc="[% f.ncloc %]" classes="[% f.classes %]" conditionals="[% f.conditionals %]" coveredconditionals="[% f.conditionals_covered %]" methods="[% f.methods %]" coveredmethods="[% f.methods_covered %]"/>
-    </package>
+    </file>
 [% END -%]
   </project>
 </coverage>

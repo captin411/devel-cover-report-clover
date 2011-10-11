@@ -7,8 +7,9 @@ our $VERSION = "0.10";
 
 use Devel::Cover::DB;
 use Template;
-use File::Basename qw(dirname);
+use File::Basename qw(dirname fileparse);
 use Getopt::Long;
+use File::Spec;
 
 # Entry point which C<cover> uses
 sub report {
@@ -45,7 +46,7 @@ sub get_options {
 }
 
 sub map_db_summary {
-    my ($summary) = @_;
+    my ( $summary, $file ) = @_;
 
     # for loc/nloc might want to keep tabs on
     # http://markmail.org/thread/b5sy3xgwacrbgjwg
@@ -65,6 +66,16 @@ sub map_db_summary {
         classes    => 0,    # TODO: whats this used for?
     };
 
+    if ($file) {
+
+        my $abs_path = File::Spec->rel2abs($file);
+        my ($short_name) = fileparse($abs_path);
+
+        $items->{abs_path}   = $abs_path;
+        $items->{short_name} = $short_name;
+
+    }
+
     return $items;
 }
 
@@ -80,7 +91,7 @@ sub template_variables {
 
     my @items = $db->cover->items;
     foreach my $file (@items) {
-        $v->{files}->{$file} = map_db_summary( $db->summary($file) )
+        $v->{files}->{$file} = map_db_summary( $db->summary($file), $file );
     }
 
     return $v;
@@ -124,6 +135,34 @@ in a variety of continuous integration software offerings.
 
 It is designed to be called from the C<cover> program distributed with
 L<Devel::Cover>.
+
+=head1 OPTIONS
+
+Options are specified by adding the appropriate flags to the C<cover> program.
+This report format supports the following:
+
+=over 4
+
+=item outputfile
+
+This will be the file name that you would like to write this report out to.
+It defaults to F<clover.xml>.
+
+=item projectname
+
+This is simply a cosmetic item.  When the xml is generated, it has a project
+name which will show up in your continuous integration system once it is
+parsed.  This can be any string you want and it defaults to
+'Devel::Cover::Report::Clover'.
+
+=back
+
+=item outputfile
+
+Specifies the filename of the main output file.  The default is
+F<coverage.html>.  Specify F<index.html> if you just want to publish the whole
+directory.
+
 
 =head1 SEE ALSO
 
