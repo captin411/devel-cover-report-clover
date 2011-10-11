@@ -28,7 +28,7 @@ sub report {
         options => $options
     };
 
-    printf( "Writing clover output file to '%s'...", output_file($options) )
+    printf( "Writing clover output file to '%s'...\n", output_file($options) )
         unless $options->{silent};
 
     $tt->process( template(), $vars, output_file($options) ) || die $tt->error();
