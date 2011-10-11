@@ -1,5 +1,6 @@
 Build
 Devel-Cover-Report-Clover-*
+MANIFEST.SKIP
 MANIFEST.SKIP.bak
 MANIFEST.bak
 MYMETA.yml
