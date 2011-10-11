@@ -1,4 +1,5 @@
 Build.PL
+CHANGES
 Makefile.PL
 INSTALL
 lib/Devel/Cover/Report/Clover.pm
