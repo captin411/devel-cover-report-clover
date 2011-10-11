@@ -9,7 +9,7 @@ DESCRIPTION
     This module generates a Clover compatible coverage xml file which can be
     used in a variety of continuous integration software offerings.
 
-    It is designed to be called from the "cover" program distributed with
+    It is designed to be called from the `cover' program distributed with
     Devel::Cover.
 
 SEE ALSO
@@ -17,7 +17,7 @@ SEE ALSO
      L<http://www.atlassian.com/software/clover/>
 
 BUGS
-    <https://github.com/captin411/Devel-Cover-Report-Clover/issues>
+    https://github.com/captin411/Devel-Cover-Report-Clover/issues
 
 AUTHOR
     David Bartle <captindave@gmail.com>

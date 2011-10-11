@@ -1,22 +1,20 @@
 ---
-abstract: 'Backend for Clover reporting of coverage statistics'
+name: Devel-Cover-Report-Clover
+version: 0.08
 author:
   - 'David Bartle <captindave@gmail.com>'
+abstract: Backend for Clover reporting of coverage statistics
+license: unknown
+requires:
+  Devel::Cover: 0
+  Template: 0
 build_requires:
   Test::More: 0
-configure_requires:
-  Module::Build: 0.36
-generated_by: 'Module::Build version 0.3607'
-license: unknown
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-name: Devel-Cover-Report-Clover
 provides:
   Devel::Cover::Report::Clover:
     file: lib/Devel/Cover/Report/Clover.pm
-    version: 0.64
-requires:
-  Devel::Cover: 0.64
-  Template: 0
-version: 0.64
+    version: 0.08
+generated_by: Module::Build version 0.280801
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

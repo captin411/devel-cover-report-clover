@@ -3,7 +3,7 @@ package Devel::Cover::Report::Clover;
 use strict;
 use warnings;
 
-our $VERSION = "0.64";
+our $VERSION = "0.08";
 
 use Devel::Cover::DB;
 use Template;
