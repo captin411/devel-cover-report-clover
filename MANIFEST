@@ -8,4 +8,5 @@ README
 t/00.load.t
 t/basic.t
 t/variable_mapping.t
+template/clover.tt
 META.yml
