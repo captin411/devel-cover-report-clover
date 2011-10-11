@@ -3,7 +3,7 @@ package Devel::Cover::Report::Clover;
 use strict;
 use warnings;
 
-our $VERSION = "0.08";
+our $VERSION = "0.09";
 
 use Devel::Cover::DB;
 use Template;
@@ -20,13 +20,7 @@ sub report {
         }
     );
 
-    my $vars = {
-        version   => $VERSION,
-        generated => time(),
-
-        db      => $db,
-        options => $options
-    };
+    my $vars = template_variables( $db, $options );
 
     printf( "Writing clover output file to '%s'...\n", output_file($options) )
         unless $options->{silent};
@@ -41,11 +35,52 @@ sub get_options {
     $opt->{option}{outputfile} = "clover.xml";
     die "Invalid command line options"
         unless GetOptions(
-                $opt->{option},
-                qw(
-                    outputfile=s
-                    )
+        $opt->{option},
+        qw(
+            outputfile=s
+            )
         );
+}
+
+sub map_db_summary {
+    my ($summary) = @_;
+
+    # for loc/nloc might want to keep tabs on
+    # http://markmail.org/thread/b5sy3xgwacrbgjwg
+    my $items = {
+        elements             => $summary->{total}->{total}        || 0,
+        elements_covered     => $summary->{total}->{covered}      || 0,
+        statements           => $summary->{statement}->{total}    || 0,
+        statements_covered   => $summary->{statement}->{covered}  || 0,
+        conditionals         => $summary->{branch}->{total}       || 0,
+        conditionals_covered => $summary->{branch}->{covered}     || 0,
+        methods              => $summary->{subroutine}->{total}   || 0,
+        methods_covered      => $summary->{subroutine}->{covered} || 0,
+
+        complexity => 0,    # TODO: Perl::Metrics::Simple
+        loc        => 0,    # TODO: Perl::Metrics::Simple?
+        ncloc      => 0,    # TODO: Perl::Metrics::Simple?
+        classes    => 0,    # TODO: whats this used for?
+    };
+
+    return $items;
+}
+
+sub template_variables {
+    my ( $db, $options ) = @_;
+
+    my $v = {
+        version   => $VERSION,
+        generated => time(),
+        total     => map_db_summary( $db->summary('Total') ),
+    };
+
+    my @items = $db->cover->items;
+    foreach my $file (@items) {
+        $v->{files}->{$file} = map_db_summary( $db->summary($file) )
+    }
+
+    return $v;
 }
 
 sub output_file {

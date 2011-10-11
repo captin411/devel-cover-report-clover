@@ -1,24 +1,17 @@
-[%-
-    USE format;
-    SET all = db.summary('Total');
-    num = format('%d');
-
--%]
 <?xml version="1.0" encoding="utf-8"?>
 <coverage generated="[% generated | xml %]" clover="[% version | xml %]" >
   <project timestamp="[% generated | xml %]" name="Devel::Cover::Report::Clover">
-    <metrics packages="[% num(db.cover.items.size) %]" elements="[% num(all.total.total) %]" coveredelements="[% num(all.total.covered) %]" statements="[% num(all.statement.total) %]" coveredstatements="[% num(all.statement.covered) %]" complexity="0" files="[% num(db.cover.items.size) %]" loc="0" ncloc="0" classes="0" conditionals="[% num(all.branch.total) %]" coveredconditionals="[% num(all.branch.covered) %]" methods="[% num(all.subroutine.total) %]" coveredmethods="[% num(all.subroutine.covered)%]"/>
+    <metrics packages="[% files.size %]" elements="[% total.elements %]" coveredelements="[% total.elements_covered %]" statements="[% total.statements %]" coveredstatements="[% total.statements_covered %]" complexity="[% total.complexity %]" files="[% files.size %]" loc="[% total.loc %]" ncloc="[% total.ncloc %]" classes="[% total.classes %]" conditionals="[% total.conditionals %]" coveredconditionals="[% total.conditionals_covered %]" methods="[% total.methods %]" coveredmethods="[% total.methods_covered %]"/>
 [%- 
-    FOREACH file IN db.cover.items;
-        SET f = db.summary(file);
-        Dumper.dump(f);
+    FOREACH file IN files.keys;
+        SET f = files.item(file);
 %]
     <package name="[% file | xml %]">
-      <metrics elements="[% num(f.total.total) %]" coveredelements="[% num(f.total.covered) %]" statements="[% num(f.statement.total) %]" coveredstatements="[% num(f.statement.covered) %]" complexity="0" files="1" loc="0" ncloc="0" classes="0" conditionals="[% num(f.branch.total) %]" coveredconditionals="[% num(f.branch.covered) %]" methods="[% num(f.subroutine.total) %]" coveredmethods="[% num(f.subroutine.covered) %]"/>
+      <metrics elements="[% f.elements %]" coveredelements="[% f.elements_covered %]" statements="[% f.statements %]" coveredstatements="[% f.statements_covered %]" complexity="[% f.complexity %]" files="1" loc="[% f.loc %]" ncloc="[% f.ncloc %]" classes="[% f.classes %]" conditionals="[% f.conditionals %]" coveredconditionals="[% f.conditionals_covered %]" methods="[% f.methods %]" coveredmethods="[% f.methods_covered %]"/>
     </package>
 [% END -%]
   </project>
-  <testproject timestamp="[% num(generated) %]" name="Devel::Cover::Report::Clover">
+  <testproject timestamp="[% generated | xml %]" name="Devel::Cover::Report::Clover">
     <metrics coveredelements="0" packages="0" coveredconditionals="0" ncloc="0" statements="0" loc="0" complexity="0" files="0" conditionals="0" coveredstatements="0" coveredmethods="0" methods="0" classes="0" elements="0"/>
   </testproject>
 </coverage>

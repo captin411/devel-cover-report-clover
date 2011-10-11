@@ -1,3 +1,4 @@
+#!perl
 use Module::Build;
 my $build = Module::Build->new(
     module_name        => 'Devel::Cover::Report::Clover',
@@ -8,6 +9,7 @@ my $build = Module::Build->new(
         'Devel::Cover' => 0,
         'Template'     => 0,
     },
+    recommends     => { 'Test::MockObject'   => '0', },
     build_requires => { 'Test::More'         => '0', },
     template_files => { 'template/clover.tt' => 'lib/Devel/Cover/Report/Clover/clover.tt' }
 );
