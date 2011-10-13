@@ -5,28 +5,21 @@ use warnings;
 
 our $VERSION = "0.10";
 
-use Devel::Cover::DB;
-use Template;
-use File::Basename qw(dirname fileparse);
+use Devel::Cover::Report::Clover::Builder;
 use Getopt::Long;
-use File::Spec;
 
 # Entry point which C<cover> uses
 sub report {
     my ( $pkg, $db, $options ) = @_;
 
-    my $tt = Template->new(
-        {   INCLUDE_PATH => tt_include_path(),
-            DEBUG        => 0,
-        }
-    );
-
-    my $vars = template_variables( $db, $options );
+    my $report = Devel::Cover::Report::Clover::Builder->new( { db => $db } );
+    my $xml_string = $report->generate( output_file($options) );
 
     printf( "Writing clover output file to '%s'...\n", output_file($options) )
         unless $options->{silent};
-
-    $tt->process( template(), $vars, output_file($options) ) || die $tt->error();
+    open( my $fh, '>', output_file($options) ) or die $!;
+    print {$fh} $xml_string;
+    close($fh);
 
 }
 
@@ -45,75 +38,13 @@ sub get_options {
         );
 }
 
-sub map_db_summary {
-    my ( $summary, $file ) = @_;
-
-    # for loc/nloc might want to keep tabs on
-    # http://markmail.org/thread/b5sy3xgwacrbgjwg
-    my $items = {
-        elements             => $summary->{total}->{total}        || 0,
-        elements_covered     => $summary->{total}->{covered}      || 0,
-        statements           => $summary->{statement}->{total}    || 0,
-        statements_covered   => $summary->{statement}->{covered}  || 0,
-        conditionals         => $summary->{branch}->{total}       || 0,
-        conditionals_covered => $summary->{branch}->{covered}     || 0,
-        methods              => $summary->{subroutine}->{total}   || 0,
-        methods_covered      => $summary->{subroutine}->{covered} || 0,
-
-        complexity => 0,    # TODO: Perl::Metrics::Simple
-        loc        => 0,    # TODO: Perl::Metrics::Simple?
-        ncloc      => 0,    # TODO: Perl::Metrics::Simple?
-        classes    => 0,    # TODO: whats this used for?
-    };
-
-    if ($file) {
-
-        my $abs_path = File::Spec->rel2abs($file);
-        my ($short_name) = fileparse($abs_path);
-
-        $items->{abs_path}   = $abs_path;
-        $items->{short_name} = $short_name;
-
-    }
-
-    return $items;
-}
-
-sub template_variables {
-    my ( $db, $options ) = @_;
-
-    my $v = {
-        project_name => $options->{option}{projectname},
-        version      => $VERSION,
-        generated    => time(),
-        total        => map_db_summary( $db->summary('Total') ),
-    };
-
-    my @items = $db->cover->items;
-    foreach my $file (@items) {
-        $v->{files}->{$file} = map_db_summary( $db->summary($file), $file );
-    }
-
-    return $v;
-}
-
 sub output_file {
     my ($options) = @_;
 
-    return sprintf( '%s/%s', $options->{outputdir}, $options->{option}{outputfile} );
-
-}
-
-sub template {
-    return 'clover.tt';
-}
-
-sub tt_file {
-    return sprintf( "%s/%s", tt_include_path(), template() );
-}
-
-sub tt_include_path {
-    return sprintf( '%s/Clover', dirname(__FILE__) );
+    my $out_dir  = $options->{outputdir};
+    my $out_file = $options->{option}{outputfile};
+    my $out_path = sprintf( '%s/%s', $out_dir, $out_file );
+    return $out_path;
 }
 
 1;

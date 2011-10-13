@@ -9,8 +9,11 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Devel/Cover/Report/Clover.pm',
           'PREREQ_PM' => {
                            'Test::More' => '0',
+                           'Test::MockObject' => '0',
+                           'Test::MockTime' => '0',
                            'Template' => 0,
-                           'Devel::Cover' => 0
+                           'Devel::Cover' => 0,
+                           'Class::Accessor::Fast' => 0
                          }
         )
 ;

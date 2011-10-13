@@ -12,6 +12,25 @@ DESCRIPTION
     It is designed to be called from the `cover' program distributed with
     Devel::Cover.
 
+OPTIONS
+    Options are specified by adding the appropriate flags to the `cover'
+    program. This report format supports the following:
+
+    outputfile
+        This will be the file name that you would like to write this report
+        out to. It defaults to clover.xml.
+
+    projectname
+        This is simply a cosmetic item. When the xml is generated, it has a
+        project name which will show up in your continuous integration
+        system once it is parsed. This can be any string you want and it
+        defaults to 'Devel::Cover::Report::Clover'.
+
+    outputfile
+    Specifies the filename of the main output file. The default is
+    coverage.html. Specify index.html if you just want to publish the whole
+    directory.
+
 SEE ALSO
      L<Devel::Cover>
      L<http://www.atlassian.com/software/clover/>
