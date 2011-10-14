@@ -8,11 +8,18 @@ sub run {
     my $path     = test_path($name);
     my $cover_db = cover_db_path($name);
 
-    local $ENV{HARNESS_PERL_SWITCHES} = "-MDevel::Cover=-db,$cover_db";
+    my $harness_switches = "-MDevel::Cover=-db,$cover_db";
 
-    system("cover -delete $cover_db 2>/dev/null 1>/dev/null");
-    system("prove $path/*.t 2>/dev/null 1>/dev/null");
-    system("cover $cover_db 2>/dev/null 1>/dev/null");
+    local $ENV{HARNESS_PERL_SWITCHES} = $harness_switches;
+
+    my $cover_delete = "cover -delete $cover_db 2>/dev/null 1>/dev/null";
+    system($cover_delete) == 0 or die "system $cover_delete failed: $?";
+
+    my $prove_cmd = "prove $path/*.t 2>/dev/null 1>/dev/null";
+    system($prove_cmd) == 0 or die "system $prove_cmd failed: $?";
+
+    my $cover_cmd = "cover $cover_db 2>/dev/null 1>/dev/null";
+    system($cover_cmd) == 0 or die "system $cover_cmd failed: $?";
 
     my $db = Devel::Cover::DB->new( db => $cover_db );
     return $db;
