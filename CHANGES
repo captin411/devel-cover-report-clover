@@ -1,5 +1,12 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.11 - 14th October 2011S
+ - prevent tests from being indexed on CPAN
+ - support older template toolkit versions w/o 'xml' filter
+ - Test::MockTime is now only recommended
+ - die if test system() calls fail
+ - more specific testing of keys in the summarize() methods
+
 Release 0.10 - 13th October 2011
 
  - Backend refactor to promote testability
