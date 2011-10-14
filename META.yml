@@ -10,12 +10,13 @@ resources:
 requires:
   Class::Accessor: 0
   Devel::Cover: 0
-  HTML::Entities: 0
+  HTML::Parser: 0
   Template: 0
 build_requires:
   Test::MockObject: 0
-  Test::MockTime: 0
   Test::More: 0
+recommends:
+  Test::MockTime: 0
 provides:
   Devel::Cover::Report::Clover:
     file: lib/Devel/Cover/Report/Clover.pm
