@@ -1,4 +1,3 @@
-- Lines of (non comment) code and Lines of comment code summaries.
 - possibly integrate (optional) Perl::Metrics::Simple for
   mccabe/cyclomatic complexity calculations
 
