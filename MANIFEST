@@ -12,11 +12,9 @@ Makefile.PL
 INSTALL
 lib/Devel/Cover/Report/Clover/Builder.pm
 lib/Devel/Cover/Report/Clover/Class.pm
-lib/Devel/Cover/Report/Clover/Class.pm.bak
 lib/Devel/Cover/Report/Clover/File.pm
 lib/Devel/Cover/Report/Clover/FileRegistry.pm
 lib/Devel/Cover/Report/Clover/Package.pm
-lib/Devel/Cover/Report/Clover/Package.pm.bak
 lib/Devel/Cover/Report/Clover/Project.pm
 lib/Devel/Cover/Report/Clover/Reportable.pm
 lib/Devel/Cover/Report/Clover.pm
