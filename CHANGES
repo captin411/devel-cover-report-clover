@@ -1,5 +1,28 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.10 - 13th October 2011
+
+ - Backend refactor to promote testability
+
+   A lot of these changes were made to help map the Perl package model
+   into the Java package model.
+
+   In Perl, a "package" is named, for example, Devel::Cover.  In Java,
+   the package would be "Devel" and the class would be "Cover".  Many
+   tools and file formats based on Java tech presume this sort of
+   hierarchy.  Thus, the backend was rewritten to take this into account
+   for the Clover xml file format.
+
+   The backend also allows metric summaries to be calculated from the
+   Devel::Cover database on particular ranges in a source file rather
+   than presuming they should be calculated on the entire file all at
+   once.
+
+ - Also, noted that the extended format of the file with per-line
+   annotations is really no use to implement.  After digging into
+   the source code of the Clover ant stuff for the Jenkins plugin,
+   it only parses the metric summaries.
+
 Release 0.09 - 11th October 2011
  - refactor template variable creation to help make testing easier
  - fixed a bug with methods_covered being set improperly to methods

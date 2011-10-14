@@ -4,15 +4,13 @@ BEGIN {
     use Test::MockTime qw(set_fixed_time restore_time );
 }
 
+use Test::MockObject::Extends;
 use Test::More;
-
-use Devel::Cover::Report::Clover;
 use Devel::Cover::Report::Clover::Builder;
 
 use FindBin;
 use lib ($FindBin::Bin);
 use testcover;
-use Test::MockObject::Extends;
 
 my $EMPTY_DB = testcover::run('Empty');
 

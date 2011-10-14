@@ -1,11 +1,11 @@
 package Devel::Cover::Report::Clover::File;
 use strict;
 use warnings;
-use Devel::Cover::Criterion;
 use base qw(Devel::Cover::Report::Clover::Reportable);
 
 use overload '""' => \&to_string, fallback => 1;
 use Devel::Cover::Report::Clover::Class;
+use File::Spec;
 
 {
     my %Lines;

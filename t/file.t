@@ -3,11 +3,10 @@
 use Test::More;
 
 use Devel::Cover::Report::Clover::Builder;
-use Devel::Cover::Report::Clover::File;
+
 use FindBin;
 use lib ($FindBin::Bin);
 use testcover;
-use Test::MockObject::Extends;
 
 my $DB = testcover::run('multi_file');
 
