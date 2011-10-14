@@ -1,5 +1,9 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.21 - 15th October 2011
+ - Added explicit license file .  License was listed in makefile but
+   some tools like it spelled out in a text file.
+
 Release 0.20 - 15th October 2011
  - Fairly substantial change to the Clover stats for 'conditionals' /
    'coveredconditionals'.  Previous to this version, it was only the

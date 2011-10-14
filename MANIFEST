@@ -8,6 +8,7 @@ cover_db_test/multi_file/MultiFile.pm
 cover_db_test/multi_file/MultiFile.t
 cover_db_test/multi_package/MultiPackage.pm
 cover_db_test/multi_package/MultiPackage.t
+LICENSE
 Makefile.PL
 INSTALL
 lib/Devel/Cover/Report/Clover/Builder.pm
