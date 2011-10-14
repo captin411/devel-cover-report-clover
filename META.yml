@@ -1,6 +1,6 @@
 ---
 name: Devel-Cover-Report-Clover
-version: 0.11
+version: 0.20
 author:
   - 'David Bartle <captindave@gmail.com>'
 abstract: Backend for Clover reporting of coverage statistics
@@ -13,6 +13,7 @@ requires:
   HTML::Parser: 0
   Template: 0
 build_requires:
+  Test::Exception: 0
   Test::MockObject: 0
   Test::More: 0
 recommends:
@@ -20,7 +21,7 @@ recommends:
 provides:
   Devel::Cover::Report::Clover:
     file: lib/Devel/Cover/Report/Clover.pm
-    version: 0.11
+    version: 0.20
   Devel::Cover::Report::Clover::Builder:
     file: lib/Devel/Cover/Report/Clover/Builder.pm
   Devel::Cover::Report::Clover::Class:

@@ -1,5 +1,14 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.20 - 15th October 2011
+ - Fairly substantial change to the Clover stats for 'conditionals' /
+   'coveredconditionals'.  Previous to this version, it was only the
+   Devel::Cover 'branch' metric.  Now it is the summation of the
+   'branch' and 'condition' criterion.
+ - Bug fixed where Class/FileFragment objects were not being created
+   with a builder.
+ - Lots more unit tests
+
 Release 0.11 - 14th October 2011
  - prevent tests from being indexed on CPAN
  - support older template toolkit versions w/o 'xml' filter

@@ -9,12 +9,16 @@ use warnings;
 
 use base qw(Class::Accessor);
 __PACKAGE__->mk_ro_accessors(qw(db));
-__PACKAGE__->mk_accessors(qw(name file_registry project));
+__PACKAGE__->mk_accessors(qw(name file_registry project include_condition_criteria ));
 
 sub new {
     my $class = shift;
 
     my $self = $class->SUPER::new(@_);
+
+    if ( !defined $self->include_condition_criteria ) {
+        $self->include_condition_criteria(1);
+    }
 
     my %summary_options = map( ( $_ => 1 ), $self->db->collected );
     $summary_options{total} = 1;

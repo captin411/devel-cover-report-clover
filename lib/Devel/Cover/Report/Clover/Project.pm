@@ -21,21 +21,28 @@ sub metrics {
 
     my $s = $self->summarize();
 
+    my $conditionals         = $s->{branch}->{total}   || 0;
+    my $conditionals_covered = $s->{branch}->{covered} || 0;
+    if ( $self->builder->include_condition_criteria ) {
+        $conditionals         += $s->{condition}->{total}   || 0;
+        $conditionals_covered += $s->{condition}->{covered} || 0;
+    }
+
     my $metrics = {
         packages => scalar @{ $self->packages },
         files    => scalar @{ $self->files },
         classes  => scalar @{ $self->classes() },
 
-        elements            => $s->{total}->{total}        || 0,
-        coveredelements     => $s->{total}->{covered}      || 0,
-        statements          => $s->{statement}->{total}    || 0,
-        coveredstatements   => $s->{statement}->{covered}  || 0,
-        complexity          => 0,
-        loc                 => $self->loc(),
-        ncloc               => $self->ncloc(),
-        conditionals        => $s->{branch}->{total}       || 0,
-        coveredconditionals => $s->{branch}->{covered}     || 0,
-        methods             => $s->{subroutine}->{total}   || 0,
+        elements          => $s->{total}->{total}       || 0,
+        coveredelements   => $s->{total}->{covered}     || 0,
+        statements        => $s->{statement}->{total}   || 0,
+        coveredstatements => $s->{statement}->{covered} || 0,
+        complexity        => 0,
+        loc               => $self->loc(),
+        ncloc             => $self->ncloc(),
+        conditionals      => $conditionals,
+        coveredconditionals => $conditionals_covered,
+        methods             => $s->{subroutine}->{total} || 0,
         coveredmethods      => $s->{subroutine}->{covered} || 0,
     };
 }

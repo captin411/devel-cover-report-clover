@@ -8,6 +8,7 @@ BEGIN {
     };
 }
 
+use Test::Exception;
 use Test::MockObject::Extends;
 use Test::More;
 use Devel::Cover::Report::Clover::Builder;
@@ -60,6 +61,40 @@ my @test = (
         is( $b->project->name, $expect, $t );
     },
     sub {
+        my $t = 'include_condition_criteria - not specified defaults to true';
+        my $b = BUILDER( { db => $EMPTY_DB } );
+        ok( $b->include_condition_criteria, $t );
+    },
+    sub {
+        my $t = "include_condition_criteria - set to '0' turns it off";
+        my $b = BUILDER( { db => $EMPTY_DB, include_condition_criteria => 0 } );
+        is( $b->include_condition_criteria, 0, $t );
+    },
+    sub {
+        my $t = "include_condition_criteria - set to undef defaults to true";
+        my $b = BUILDER( { db => $EMPTY_DB, include_condition_criteria => undef } );
+        ok( $b->include_condition_criteria, $t );
+    },
+    sub {
+        my $t = "generate - no file specified should die";
+        my $b = BUILDER( { db => $EMPTY_DB } );
+
+        dies_ok( sub { $b->generate() }, $t );
+    },
+    sub {
+        my $t = "generate - bad file specified should die";
+        my $b = BUILDER( { db => $EMPTY_DB } );
+
+        dies_ok( sub { $b->generate('.') }, $t );
+    },
+    sub {
+        my $t = "report_xml - template toolkit dies on error";
+        my $b = Test::MockObject::Extends->new( BUILDER( { db => $EMPTY_DB } ) );
+        $b->mock( 'template_file', sub { return ''; } );
+        $b->mock( 'report', sub { return {}; } );
+        throws_ok( sub { $b->report_xml() }, 'Template::Exception', $t );
+    },
+    sub {
     SKIP: {
             skip "Test::MockTime is not installed", 1 unless $MOCKTIME;
 
@@ -97,4 +132,3 @@ $_->() foreach @test;
 sub BUILDER {
     return Devel::Cover::Report::Clover::Builder->new(shift);
 }
-

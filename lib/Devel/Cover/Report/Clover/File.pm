@@ -167,6 +167,7 @@ sub classes {
         if ($class_changed) {
             my $file_frag = Devel::Cover::Report::Clover::FileFragment->new(
                 {   name       => $self->name,
+                    builder    => $self->builder,
                     line_start => $class_start - 1,
                     line_end   => $line_number - 2,
                 }
@@ -174,6 +175,7 @@ sub classes {
             push @classes,
                 Devel::Cover::Report::Clover::Class->new(
                 {   file_fragment => $file_frag,
+                    builder       => $self->builder,
                     name          => $pl->{class},
                     package       => $pl->{package}
                 }
@@ -192,6 +194,7 @@ sub classes {
     if ($flush_class) {
         my $file_frag = Devel::Cover::Report::Clover::FileFragment->new(
             {   name       => $self->name,
+                builder    => $self->builder,
                 line_start => $class_start - 1,
                 line_end   => $line_number - 1,
             }
@@ -199,6 +202,7 @@ sub classes {
         push @classes,
             Devel::Cover::Report::Clover::Class->new(
             {   file_fragment => $file_frag,
+                builder       => $self->builder,
                 name          => $pl->{class},
                 package       => $pl->{package}
             }

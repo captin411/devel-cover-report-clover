@@ -10,6 +10,7 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Test::More' => '0',
                            'Test::MockObject' => '0',
+                           'Test::Exception' => '0',
                            'HTML::Parser' => 0,
                            'Class::Accessor' => 0,
                            'Template' => 0,

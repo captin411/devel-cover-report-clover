@@ -9,7 +9,7 @@ use testcover;
 
 my $DB = testcover::run('multi_file');
 
-my $b        = BUILDER( { name => 'test', db => $DB } );
+my $b        = BUILDER( { name => 'test', db => $DB, include_condition_criteria => 0 } );
 my $proj     = $b->project;
 my @packages = @{ $proj->packages };
 my $package  = $proj->package('');
@@ -45,16 +45,58 @@ my @test = (
         my $package = $proj->package('MultiFile');
         my $s       = $package->summarize()->{total};
 
-        my $expected = {
-            'covered'     => 14,
-            'uncoverable' => 0,
-            'error'       => 10,
-            'percentage'  => '50',
-            'total'       => 24
+        is( $s->{covered}, 14, "$t - covered value" );
+        is( $s->{total},   24, "$t - total value" );
+
+    },
+    sub {
+        my $t       = "metrics - criteria(branch)";
+        my $package = $proj->package('MultiFile');
+        my $s       = $package->metrics;
+
+        my $expect = {
+            'classes'             => 3,
+            'complexity'          => 0,
+            'conditionals'        => 2,
+            'coveredconditionals' => 0,
+            'coveredelements'     => 14,
+            'coveredmethods'      => 4,
+            'coveredstatements'   => 10,
+            'elements'            => 24,
+            'files'               => 3,
+            'loc'                 => 8,
+            'methods'             => 5,
+            'ncloc'               => 26,
+            'statements'          => 15
         };
 
-        is( $s->{covered}, $expected->{covered}, "$t - covered value" );
-        is( $s->{total},   $expected->{total},   "$t - total value" );
+        is_deeply( $s, $expect, $t );
+
+    },
+    sub {
+        my $t       = "metrics - criteria(branch+conditional)";
+        my $b       = BUILDER( { name => 'test', db => $DB, include_condition_criteria => 1 } );
+        my $proj    = $b->project;
+        my $package = $proj->package('MultiFile');
+        my $s       = $package->metrics;
+
+        my $expect = {
+            'classes'             => 3,
+            'complexity'          => 0,
+            'conditionals'        => 4,
+            'coveredconditionals' => 0,
+            'coveredelements'     => 14,
+            'coveredmethods'      => 4,
+            'coveredstatements'   => 10,
+            'elements'            => 24,
+            'files'               => 3,
+            'loc'                 => 8,
+            'methods'             => 5,
+            'ncloc'               => 26,
+            'statements'          => 15
+        };
+
+        is_deeply( $s, $expect, $t );
 
     },
 );

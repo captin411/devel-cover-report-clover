@@ -24,6 +24,7 @@ TODO
 t/00.load.t
 t/basic.t
 t/builer.t
+t/class.t
 t/end_to_end.t
 t/file.t
 t/file_registry.t

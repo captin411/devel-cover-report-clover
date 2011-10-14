@@ -7,7 +7,7 @@ __PACKAGE__->mk_accessors(qw( name package file_fragment ));
 sub full_name {
     my ($self) = @_;
 
-    return sprintf( '%s::%s', $self->name, $self->package );
+    return join '::', grep {$_} ( $self->package, $self->name );
 }
 
 sub report {
@@ -29,17 +29,24 @@ sub metrics {
 
     my $s = $self->summarize();
 
+    my $conditionals         = $s->{branch}->{total}   || 0;
+    my $conditionals_covered = $s->{branch}->{covered} || 0;
+    if ( $self->builder->include_condition_criteria ) {
+        $conditionals         += $s->{condition}->{total}   || 0;
+        $conditionals_covered += $s->{condition}->{covered} || 0;
+    }
+
     my $metrics = {
-        elements            => $s->{total}->{total}        || 0,
-        coveredelements     => $s->{total}->{covered}      || 0,
-        statements          => $s->{statement}->{total}    || 0,
-        coveredstatements   => $s->{statement}->{covered}  || 0,
-        complexity          => 0,
-        loc                 => $self->loc(),
-        ncloc               => $self->ncloc(),
-        conditionals        => $s->{branch}->{total}       || 0,
-        coveredconditionals => $s->{branch}->{covered}     || 0,
-        methods             => $s->{subroutine}->{total}   || 0,
+        elements          => $s->{total}->{total}       || 0,
+        coveredelements   => $s->{total}->{covered}     || 0,
+        statements        => $s->{statement}->{total}   || 0,
+        coveredstatements => $s->{statement}->{covered} || 0,
+        complexity        => 0,
+        loc               => $self->loc(),
+        ncloc             => $self->ncloc(),
+        conditionals      => $conditionals,
+        coveredconditionals => $conditionals_covered,
+        methods             => $s->{subroutine}->{total} || 0,
         coveredmethods      => $s->{subroutine}->{covered} || 0,
     };
 
