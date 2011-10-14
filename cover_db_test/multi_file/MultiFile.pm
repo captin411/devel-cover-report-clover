@@ -22,7 +22,13 @@ use MultiFile::Second;
 
 sub go {
     my $x = 1 + MultiFile::First::go() + MultiFile::Second::go();
-    return $x + 1;
+    my $y = shift || 0;
+    if( $x < $y ) {
+        return $y;
+    }
+    else {
+        return $x;
+    }
 }
 
 1;

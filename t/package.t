@@ -43,34 +43,23 @@ my @test = (
     sub {
         my $t       = "summarize";
         my $package = $proj->package('MultiFile');
-        my $s       = $package->summarize();
+        my $s       = $package->summarize()->{total};
 
         my $expected = {
-            'statement' => {
-                'covered'    => 10,
-                'error'      => 2,
-                'percentage' => '83.3333333333333',
-                'total'      => 12
-            },
-            'subroutine' => {
-                'covered'    => 4,
-                'error'      => 1,
-                'percentage' => 80,
-                'total'      => 5
-            },
-            'total' => {
-                'covered'    => 14,
-                'error'      => 3,
-                'percentage' => '82.3529411764706',
-                'total'      => 17
-            }
+            'covered'     => 14,
+            'uncoverable' => 0,
+            'error'       => 10,
+            'percentage'  => '50',
+            'total'       => 24
         };
 
-        is_deeply( $s, $expected, $t );
+        is( $s->{covered}, $expected->{covered}, "$t - covered value" );
+        is( $s->{total},   $expected->{total},   "$t - total value" );
+
     },
 );
 
-plan tests => scalar @test;
+plan tests => scalar @test + 1;
 
 $_->() foreach @test;
 

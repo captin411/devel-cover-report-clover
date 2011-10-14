@@ -6,9 +6,10 @@ my $build = Module::Build->new(
     create_readme      => 'README',
     license            => 'perl',
     requires           => {
-        'Devel::Cover'          => 0,
-        'Template'              => 0,
-        'Class::Accessor::Fast' => 0,
+        'Class::Accessor' => 0,
+        'Devel::Cover'    => 0,
+        'HTML::Entities'  => 0,
+        'Template'        => 0,
     },
     build_requires => {
         'Test::More'       => '0',

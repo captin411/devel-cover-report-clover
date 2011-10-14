@@ -1,6 +1,6 @@
 ---
 name: Devel-Cover-Report-Clover
-version: 0.10
+version: 0.11
 author:
   - 'David Bartle <captindave@gmail.com>'
 abstract: Backend for Clover reporting of coverage statistics
@@ -8,8 +8,9 @@ license: perl
 resources:
   license: http://dev.perl.org/licenses/
 requires:
-  Class::Accessor::Fast: 0
+  Class::Accessor: 0
   Devel::Cover: 0
+  HTML::Entities: 0
   Template: 0
 build_requires:
   Test::MockObject: 0
@@ -18,7 +19,7 @@ build_requires:
 provides:
   Devel::Cover::Report::Clover:
     file: lib/Devel/Cover/Report/Clover.pm
-    version: 0.10
+    version: 0.11
   Devel::Cover::Report::Clover::Builder:
     file: lib/Devel/Cover/Report/Clover/Builder.pm
   Devel::Cover::Report::Clover::Class:

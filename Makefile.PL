@@ -11,9 +11,10 @@ WriteMakefile
                            'Test::More' => '0',
                            'Test::MockObject' => '0',
                            'Test::MockTime' => '0',
+                           'HTML::Entities' => 0,
+                           'Class::Accessor' => 0,
                            'Template' => 0,
-                           'Devel::Cover' => 0,
-                           'Class::Accessor::Fast' => 0
+                           'Devel::Cover' => 0
                          }
         )
 ;

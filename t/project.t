@@ -24,7 +24,7 @@ my @test = (
     },
     sub {
         my $t = "ncloc";
-        is( $p->ncloc(), 28, $t );
+        is( $p->ncloc(), 34, $t );
     },
 );
 

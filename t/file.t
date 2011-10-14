@@ -15,7 +15,7 @@ my @files = @{ $b->file_registry->files };
 
 my @test = (
     sub {
-        my $t = "files - 3 of them";
+        my $t = "files - file registry has all files listed";
         is( scalar @files, 3, $t );
     },
 );
@@ -45,14 +45,14 @@ my %expected_file_stats = (
     },
     'MultiFile.pm' => {
         loc         => 12,
-        ncloc       => 16,
-        line_count  => 28,
+        ncloc       => 22,
+        line_count  => 34,
         class_count => 2,
         total       => {
             covered    => 19,
             error      => 3,
             percentage => '86.3636363636364',
-            total      => 22,
+            total      => 29,
         }
     },
 );
@@ -78,7 +78,9 @@ foreach my $file (@files) {
     push @test, sub {
         my $t   = "summary calculation - $file";
         my $got = $file->summarize();
-        is_deeply( $got->{total}, $expected->{total}, $t );
+
+        is( $got->{total}->{total},   $expected->{total}->{total},   "$t - total" );
+        is( $got->{total}->{covered}, $expected->{total}->{covered}, "$t - covered" );
     };
     push @test, sub {
         my $t       = "class count -> $file";
@@ -88,7 +90,7 @@ foreach my $file (@files) {
         }
 }
 
-plan tests => scalar @test;
+plan tests => scalar @test + ( 1 * scalar @files );
 
 $_->() foreach @test;
 

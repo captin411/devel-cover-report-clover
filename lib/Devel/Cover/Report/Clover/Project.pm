@@ -66,7 +66,17 @@ sub files {
 
 sub summarize {
     my ($self) = @_;
-    return $self->builder->db->summary('Total');
+
+    my %s = %{ $self->builder->db->summary('Total') };
+
+    my @criteria = $self->builder->accept_criteria();
+
+    my %filtered;
+    foreach my $c (@criteria) {
+        next unless exists $s{$c};
+        $filtered{$c} = $s{$c};
+    }
+    return \%filtered;
 }
 
 sub loc {

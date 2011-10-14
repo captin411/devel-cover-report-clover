@@ -16,6 +16,12 @@ my $EMPTY_DB = testcover::run('Empty');
 
 my @test = (
     sub {
+        my $t        = "accept_criteria - array exists and has items in it";
+        my @criteria = Devel::Cover::Report::Clover::Builder->accept_criteria();
+
+        ok( scalar @criteria > 0, $t );
+    },
+    sub {
         my $t = "template_dir - returns valid folder";
 
         my $ret = Devel::Cover::Report::Clover::Builder::template_dir();

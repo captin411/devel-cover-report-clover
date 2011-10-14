@@ -7,7 +7,7 @@ use Devel::Cover::Report::Clover::FileRegistry;
 use strict;
 use warnings;
 
-use base qw(Class::Accessor::Faster);
+use base qw(Class::Accessor);
 __PACKAGE__->mk_ro_accessors(qw(db));
 __PACKAGE__->mk_accessors(qw(name file_registry project));
 
@@ -61,6 +61,10 @@ sub report_xml {
     $tt->process( $self->template_file, $vars, \$out ) || die $tt->error();
     return $out;
 
+}
+
+sub accept_criteria {
+    return qw( statement branch condition subroutine );
 }
 
 sub template_file {

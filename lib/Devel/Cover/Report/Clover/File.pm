@@ -5,6 +5,7 @@ use base qw(Devel::Cover::Report::Clover::Reportable);
 
 use overload '""' => \&to_string, fallback => 1;
 use Devel::Cover::Report::Clover::Class;
+use Devel::Cover::Report::Clover::Builder;
 use File::Spec;
 
 {
@@ -90,7 +91,9 @@ use File::Spec;
 
                 my %criteria;
                 for my $c ( $db->criteria ) {
-                    next if $c eq 'time';    # report does not care about these
+                    next
+                        unless grep { $c eq $_ }
+                            Devel::Cover::Report::Clover::Builder->accept_criteria();
                     my $criterion = $cover_data->$c();
                     if ($criterion) {
                         my $l = $criterion->location($line_no);
@@ -223,6 +226,9 @@ sub summarize {
         next unless %$criteria;
 
         foreach my $criterion ( keys %$criteria ) {
+            next
+                unless grep { $criterion eq $_ }
+                    Devel::Cover::Report::Clover::Builder->accept_criteria();
             my $items = $criteria->{$criterion};
             foreach my $item (@$items) {
                 $item->calculate_summary( $accum, $key );
