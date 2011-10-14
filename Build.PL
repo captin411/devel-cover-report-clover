@@ -5,13 +5,14 @@ my $build = Module::Build->new(
     create_makefile_pl => 'traditional',
     create_readme      => 'README',
     license            => 'perl',
+    no_index           => { 'directory' => [ 'cover_db_test', 't', ], },
     requires           => {
         'Class::Accessor' => 0,
         'Devel::Cover'    => 0,
-        'HTML::Parser'    => 0, # For HTML::Entities
+        'HTML::Parser'    => 0,    # For HTML::Entities
         'Template'        => 0,
     },
-    recommends => { 'Test::MockTime' => 0, },
+    recommends     => { 'Test::MockTime' => 0, },
     build_requires => {
         'Test::More'       => '0',
         'Test::MockObject' => '0',

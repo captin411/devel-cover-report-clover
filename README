@@ -32,8 +32,7 @@ OPTIONS
     directory.
 
 SEE ALSO
-     L<Devel::Cover>
-     L<http://www.atlassian.com/software/clover/>
+    Devel::Cover http://www.atlassian.com/software/clover/
 
 BUGS
     https://github.com/captin411/Devel-Cover-Report-Clover/issues

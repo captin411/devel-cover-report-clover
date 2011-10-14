@@ -39,6 +39,10 @@ provides:
     file: lib/Devel/Cover/Report/Clover/Project.pm
   Devel::Cover::Report::Clover::Reportable:
     file: lib/Devel/Cover/Report/Clover/Reportable.pm
+no_index:
+  directory:
+    - cover_db_test
+    - t
 generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

@@ -97,8 +97,8 @@ directory.
 
 =head1 SEE ALSO
 
- L<Devel::Cover>
- L<http://www.atlassian.com/software/clover/>
+L<Devel::Cover>
+L<http://www.atlassian.com/software/clover/>
 
 =head1 BUGS
 
