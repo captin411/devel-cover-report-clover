@@ -1,6 +1,5 @@
 package testcover;
 use Config;
-use Data::Dumper;
 use Devel::Cover::DB;
 use File::Glob qw(bsd_glob);
 use FindBin;
@@ -25,7 +24,7 @@ sub run {
     my $cover_cmd = cover_cmd();
 
     if ( !$cover_cmd ) {
-        die( 'Missing "cover". %Config:' . Dumper( \%Config ) );
+        die('Missing "cover" command');
     }
 
     my $path_to_perl = $Config{perlpath};
@@ -50,7 +49,7 @@ sub run_cmd {
     {
         local *STDOUT = STDOUT;
         open( STDOUT, '>', '/dev/null' );
-        system(@parts) == 0 or die "system($str) failed: $? \n" . Dumper( \%Config );
+        system(@parts) == 0 or die "system($str) failed: $? \n";
     }
     return;
 }
