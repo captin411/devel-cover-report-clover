@@ -1,5 +1,6 @@
 package testcover;
 use FindBin;
+use File::Glob qw(bsd_glob);
 use Devel::Cover::DB;
 
 sub run {
@@ -8,22 +9,31 @@ sub run {
     my $path     = test_path($name);
     my $cover_db = cover_db_path($name);
 
-    my $harness_switches = "-MDevel::Cover=-db,$cover_db";
+    my $prove_cmd = `which prove`;
+    chomp($prove_cmd);
 
-    local $ENV{HARNESS_PERL_SWITCHES} = $harness_switches;
+    my $cover_cmd = `which cover`;
+    chomp($cover_cmd);
 
-    my $cover_delete = "cover -delete $cover_db 2>/dev/null 1>/dev/null";
-    system($cover_delete) == 0 or die "system $cover_delete failed: $?";
-
-    my $prove_cmd = "prove $path/*.t 2>/dev/null 1>/dev/null";
-    system($prove_cmd) == 0 or die "system $prove_cmd failed: $?";
-
-    my $cover_cmd = "cover $cover_db 2>/dev/null 1>/dev/null";
-    system($cover_cmd) == 0 or die "system $cover_cmd failed: $?";
+    local $ENV{HARNESS_PERL_SWITCHES} = "'-MDevel::Cover=-db,$cover_db'";
+    run_cmd( $cover_cmd, "-delete", $cover_db );
+    run_cmd( $prove_cmd, bsd_glob("$path/*.t") );
+    run_cmd( $cover_cmd, $cover_db );
 
     my $db = Devel::Cover::DB->new( db => $cover_db );
     return $db;
 
+}
+
+sub run_cmd {
+    my @parts = @_;
+    my $str = sprintf( "'%s'", join "','", @parts );
+    {
+        local *STDOUT;
+        open( STDOUT, '>', '/dev/null' );
+        system(@parts) == 0 or die "system($str) failed: $?";
+    }
+    return;
 }
 
 sub cover_db_path {
