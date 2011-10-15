@@ -18,7 +18,6 @@ my $build = Module::Build->new(
         'Test::More'       => '0',
         'Test::MockObject' => '0',
     },
-    template_files => { 'template/clover.tt' => 'lib/Devel/Cover/Report/Clover/clover.tt' }
 );
-$build->add_build_element('template');
+$build->add_build_element('tt');
 $build->create_build_script;

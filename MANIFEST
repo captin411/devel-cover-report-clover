@@ -18,6 +18,7 @@ lib/Devel/Cover/Report/Clover/FileRegistry.pm
 lib/Devel/Cover/Report/Clover/Package.pm
 lib/Devel/Cover/Report/Clover/Project.pm
 lib/Devel/Cover/Report/Clover/Reportable.pm
+lib/Devel/Cover/Report/Clover/clover.tt
 lib/Devel/Cover/Report/Clover.pm
 MANIFEST			This list of files
 README
@@ -32,5 +33,4 @@ t/file_registry.t
 t/package.t
 t/project.t
 t/testcover.pm
-template/clover.tt
 META.yml

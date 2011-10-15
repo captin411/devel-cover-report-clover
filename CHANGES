@@ -1,5 +1,8 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.22 - 15th October 2011
+ - clover.tt file no longer missing when using Makefile.PL
+
 Release 0.21 - 15th October 2011
  - Fix for tests for working paths containing spaces 
  - Added explicit license file .  License was listed in makefile but
