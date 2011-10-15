@@ -1,4 +1,5 @@
 package testcover;
+use Config;
 use FindBin;
 use TAP::Harness;
 use File::Glob qw(bsd_glob);
@@ -21,7 +22,10 @@ sub run {
 
     my $cover_cmd = `which cover`;
     chomp($cover_cmd);
-    run_cmd( $cover_cmd, $cover_db );
+    die "could not find the 'cover' command line program" unless $cover_cmd;
+
+    my $path_to_perl = $Config{perlpath};
+    run_cmd( $path_to_perl, $cover_cmd, $cover_db );
 
     my $db = Devel::Cover::DB->new( db => $cover_db );
     return $db;

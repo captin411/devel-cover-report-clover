@@ -23,7 +23,7 @@ no_index:
 provides:
   Devel::Cover::Report::Clover:
     file: lib/Devel/Cover/Report/Clover.pm
-    version: 0.25
+    version: 0.26
   Devel::Cover::Report::Clover::Builder:
     file: lib/Devel/Cover/Report/Clover/Builder.pm
     version: 0
@@ -60,4 +60,4 @@ requires:
   Template: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.25
+version: 0.26
