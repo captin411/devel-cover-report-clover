@@ -4,6 +4,7 @@ use FindBin;
 use TAP::Harness;
 use File::Glob qw(bsd_glob);
 use Devel::Cover::DB;
+use Data::Dumper;
 
 sub run {
     my $name = shift;
@@ -22,7 +23,10 @@ sub run {
 
     my $cover_cmd = `which cover`;
     chomp($cover_cmd);
-    die "could not find the 'cover' command line program" unless $cover_cmd;
+
+    if ( !$cover_cmd ) {
+        die( 'Missing "cover". %Config:' . Dumper( \%Config ) );
+    }
 
     my $path_to_perl = $Config{perlpath};
     run_cmd( $path_to_perl, $cover_cmd, $cover_db );
@@ -38,7 +42,7 @@ sub run_cmd {
     {
         local *STDOUT = STDOUT;
         open( STDOUT, '>', '/dev/null' );
-        system(@parts) == 0 or die "system($str) failed: $?";
+        system(@parts) == 0 or die "system($str) failed: $? \n" . Dumper( \%Config );
     }
     return;
 }
