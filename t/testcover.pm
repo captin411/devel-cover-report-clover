@@ -10,15 +10,17 @@ sub run {
     my $path     = test_path($name);
     my $cover_db = cover_db_path($name);
 
+    my $harness = TAP::Harness->new(
+        {   verbosity => -3,
+            lib       => [$path],
+            switches  => "-MDevel::Cover=-db,$cover_db"
+        }
+    );
+    my @tests = bsd_glob("$path/*.t");
+    $harness->runtests(@tests);
+
     my $cover_cmd = `which cover`;
     chomp($cover_cmd);
-
-    {
-        local $ENV{HARNESS_PERL_SWITCHES} = "'-MDevel::Cover=-db,$cover_db'";
-        my $harness = TAP::Harness->new( { verbosity => -3, lib => [$path] } );
-        $harness->runtests( bsd_glob("$path/*.t") );
-    }
-
     run_cmd( $cover_cmd, $cover_db );
 
     my $db = Devel::Cover::DB->new( db => $cover_db );
