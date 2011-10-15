@@ -1,5 +1,9 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.23 - 15th October 2011
+ - test setup script no longer blindly tries to delete a (nonexistant)
+   cover_db.
+
 Release 0.22 - 15th October 2011
  - clover.tt file no longer missing when using Makefile.PL
 

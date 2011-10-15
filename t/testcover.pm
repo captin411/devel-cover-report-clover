@@ -16,7 +16,6 @@ sub run {
     chomp($cover_cmd);
 
     local $ENV{HARNESS_PERL_SWITCHES} = "'-MDevel::Cover=-db,$cover_db'";
-    run_cmd( $cover_cmd, "-delete", $cover_db );
     run_cmd( $prove_cmd, bsd_glob("$path/*.t") );
     run_cmd( $cover_cmd, $cover_db );
 

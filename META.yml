@@ -1,50 +1,62 @@
 ---
-name: Devel-Cover-Report-Clover
-version: 0.22
+abstract: 'Backend for Clover reporting of coverage statistics'
 author:
   - 'David Bartle <captindave@gmail.com>'
-abstract: Backend for Clover reporting of coverage statistics
+build_requires:
+  Test::Exception: 0
+  Test::MockObject: 0
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.38
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112150'
 license: perl
-resources:
-  license: http://dev.perl.org/licenses/
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Devel-Cover-Report-Clover
+no_index:
+  directory:
+    - cover_db_test
+    - t
+provides:
+  Devel::Cover::Report::Clover:
+    file: lib/Devel/Cover/Report/Clover.pm
+    version: 0.23
+  Devel::Cover::Report::Clover::Builder:
+    file: lib/Devel/Cover/Report/Clover/Builder.pm
+    version: 0
+  Devel::Cover::Report::Clover::Class:
+    file: lib/Devel/Cover/Report/Clover/Class.pm
+    version: 0
+  Devel::Cover::Report::Clover::File:
+    file: lib/Devel/Cover/Report/Clover/File.pm
+    version: 0
+  Devel::Cover::Report::Clover::FileFragment:
+    file: lib/Devel/Cover/Report/Clover/File.pm
+    version: 0
+  Devel::Cover::Report::Clover::FileRegistry:
+    file: lib/Devel/Cover/Report/Clover/FileRegistry.pm
+    version: 0
+  Devel::Cover::Report::Clover::Package:
+    file: lib/Devel/Cover/Report/Clover/Package.pm
+    version: 0
+  Devel::Cover::Report::Clover::PackageFile:
+    file: lib/Devel/Cover/Report/Clover/Package.pm
+    version: 0
+  Devel::Cover::Report::Clover::Project:
+    file: lib/Devel/Cover/Report/Clover/Project.pm
+    version: 0
+  Devel::Cover::Report::Clover::Reportable:
+    file: lib/Devel/Cover/Report/Clover/Reportable.pm
+    version: 0
+recommends:
+  Test::MockTime: 0
 requires:
   Class::Accessor: 0
   Devel::Cover: 0
   HTML::Parser: 0
   Template: 0
-build_requires:
-  Test::Exception: 0
-  Test::MockObject: 0
-  Test::More: 0
-recommends:
-  Test::MockTime: 0
-provides:
-  Devel::Cover::Report::Clover:
-    file: lib/Devel/Cover/Report/Clover.pm
-    version: 0.22
-  Devel::Cover::Report::Clover::Builder:
-    file: lib/Devel/Cover/Report/Clover/Builder.pm
-  Devel::Cover::Report::Clover::Class:
-    file: lib/Devel/Cover/Report/Clover/Class.pm
-  Devel::Cover::Report::Clover::File:
-    file: lib/Devel/Cover/Report/Clover/File.pm
-  Devel::Cover::Report::Clover::FileFragment:
-    file: lib/Devel/Cover/Report/Clover/File.pm
-  Devel::Cover::Report::Clover::FileRegistry:
-    file: lib/Devel/Cover/Report/Clover/FileRegistry.pm
-  Devel::Cover::Report::Clover::Package:
-    file: lib/Devel/Cover/Report/Clover/Package.pm
-  Devel::Cover::Report::Clover::PackageFile:
-    file: lib/Devel/Cover/Report/Clover/Package.pm
-  Devel::Cover::Report::Clover::Project:
-    file: lib/Devel/Cover/Report/Clover/Project.pm
-  Devel::Cover::Report::Clover::Reportable:
-    file: lib/Devel/Cover/Report/Clover/Reportable.pm
-no_index:
-  directory:
-    - cover_db_test
-    - t
-generated_by: Module::Build version 0.280801
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.23
