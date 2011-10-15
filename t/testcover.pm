@@ -28,7 +28,7 @@ sub run_cmd {
     my @parts = @_;
     my $str = sprintf( "'%s'", join "','", @parts );
     {
-        local *STDOUT;
+        local *STDOUT = STDOUT;
         open( STDOUT, '>', '/dev/null' );
         system(@parts) == 0 or die "system($str) failed: $?";
     }

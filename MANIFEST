@@ -34,3 +34,4 @@ t/package.t
 t/project.t
 t/testcover.pm
 META.yml
+META.json
