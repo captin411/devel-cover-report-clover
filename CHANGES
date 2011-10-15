@@ -1,5 +1,10 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.26 - 15th October 2011
+ - Try and find perl related commands based on the Config module
+   paths rather than the unix 'which' command. Same with the
+   perl command.
+
 Release 0.25 - 15th October 2011
  - I'm not good at TAP::Harness
 

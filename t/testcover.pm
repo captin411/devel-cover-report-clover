@@ -1,10 +1,11 @@
 package testcover;
 use Config;
-use FindBin;
-use TAP::Harness;
-use File::Glob qw(bsd_glob);
-use Devel::Cover::DB;
 use Data::Dumper;
+use Devel::Cover::DB;
+use File::Glob qw(bsd_glob);
+use FindBin;
+use List::Util qw(first);
+use TAP::Harness;
 
 sub run {
     my $name = shift;
@@ -21,8 +22,7 @@ sub run {
     my @tests = bsd_glob("$path/*.t");
     $harness->runtests(@tests);
 
-    my $cover_cmd = `which cover`;
-    chomp($cover_cmd);
+    my $cover_cmd = p_which('cover');
 
     if ( !$cover_cmd ) {
         die( 'Missing "cover". %Config:' . Dumper( \%Config ) );
@@ -33,6 +33,14 @@ sub run {
 
     my $db = Devel::Cover::DB->new( db => $cover_db );
     return $db;
+
+}
+
+sub p_which {
+    my $command = shift;
+
+    return first {-f}
+    map {"$_/$command"} @Config{qw/installscript installsitebin installvendorbin installbin/};
 
 }
 
