@@ -14,6 +14,7 @@ my $build = Module::Build->new(
     },
     recommends     => { 'Test::MockTime' => 0, },
     build_requires => {
+        'TAP::Harness'     => '0',
         'Test::Exception'  => '0',
         'Test::More'       => '0',
         'Test::MockObject' => '0',

@@ -3,7 +3,7 @@ Devel::Cover::Report::Clover.pm history
 Release 0.24 - 15th October 2011
  - tests in verbose mode failed cause of system command STDOUT
    spewing.
-   
+ - use TAP::Harness for testing the tests instead of 'prove'
 
 Release 0.23 - 15th October 2011
  - test setup script no longer blindly tries to delete a (nonexistant)

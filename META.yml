@@ -3,6 +3,7 @@ abstract: 'Backend for Clover reporting of coverage statistics'
 author:
   - 'David Bartle <captindave@gmail.com>'
 build_requires:
+  TAP::Harness: 0
   Test::Exception: 0
   Test::MockObject: 0
   Test::More: 0
