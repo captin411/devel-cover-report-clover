@@ -22,7 +22,7 @@ sub run {
     my @tests = bsd_glob("$path/*.t");
     $harness->runtests(@tests);
 
-    my $cover_cmd = p_which('cover');
+    my $cover_cmd = cover_cmd();
 
     if ( !$cover_cmd ) {
         die( 'Missing "cover". %Config:' . Dumper( \%Config ) );
@@ -53,6 +53,14 @@ sub run_cmd {
         system(@parts) == 0 or die "system($str) failed: $? \n" . Dumper( \%Config );
     }
     return;
+}
+
+sub cover_cmd {
+    my $which = `which cover`;
+    chomp($which);
+    my $p_which = p_which('cover');
+
+    return first {$_} ( $p_which, $which );
 }
 
 sub cover_db_path {

@@ -1,5 +1,10 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.27 - 15th October 2011
+ - Per http://wiki.cpantesters.org/wiki/CPANAuthorNotes, exit(0)
+   if we're running in automated testing mode and the 'cover'
+   command line program was not found (it's a dependency for testing).
+
 Release 0.26 - 15th October 2011
  - Try and find perl related commands based on the Config module
    paths rather than the unix 'which' command. Same with the

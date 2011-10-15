@@ -1,5 +1,12 @@
 #!perl
 use Module::Build;
+use lib 't';
+use testcover;
+
+if ( !testcover::cover_cmd() ) {
+    warn("no 'cover' command found so this can not be tested. Ensure Devel::Cover is installed");
+    exit 0 if $ENV{AUTOMATED_TESTING};
+}
 my $build = Module::Build->new(
     module_name        => 'Devel::Cover::Report::Clover',
     create_makefile_pl => 'traditional',
