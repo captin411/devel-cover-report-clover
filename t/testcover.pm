@@ -1,6 +1,7 @@
 package testcover;
 use Config;
 use Devel::Cover::DB;
+use Devel::Cover::Inc;
 use File::Glob qw(bsd_glob);
 use FindBin;
 use List::Util qw(first);
@@ -22,13 +23,15 @@ sub run {
     $harness->runtests(@tests);
 
     my $cover_cmd = cover_cmd();
-
     if ( !$cover_cmd ) {
         die('Missing "cover" command');
     }
+    my $perl_cmd = perl_cmd();
+    if ( !$perl_cmd ) {
+        die('Missing "perl" command');
+    }
 
-    my $path_to_perl = $Config{perlpath};
-    run_cmd( $path_to_perl, $cover_cmd, $cover_db );
+    run_cmd( $perl_cmd, $cover_cmd, $cover_db );
 
     my $db = Devel::Cover::DB->new( db => $cover_db );
     return $db;
@@ -55,11 +58,17 @@ sub run_cmd {
 }
 
 sub cover_cmd {
-    my $which = `which cover`;
-    chomp($which);
     my $p_which = p_which('cover');
 
-    return first {$_} ( $p_which, $which );
+    return first {-f} ( $p_which, $Devel::Cover::Inc::Base . "/cover" );
+}
+
+sub perl_cmd {
+    return first {-f} ( $Config{perlpath}, $^W );
+}
+
+sub test_commands_exist {
+    return cover_cmd() && perl_cmd();
 }
 
 sub cover_db_path {

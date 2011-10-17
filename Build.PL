@@ -3,17 +3,20 @@ use Module::Build;
 use lib 't';
 use testcover;
 
-if ( !testcover::cover_cmd() ) {
-    warn("no 'cover' command found so this can not be tested. Ensure Devel::Cover is installed");
+if ( !testcover::test_commands_exist() ) {
+    warn("missing some commands required for testing");
+    warn( "cover: " . testcover::cover_cmd() );
+    warn( "perl: " . testcover::perl_cmd() );
     exit 0 if $ENV{AUTOMATED_TESTING};
 }
 my $build = Module::Build->new(
-    module_name        => 'Devel::Cover::Report::Clover',
-    create_makefile_pl => 'traditional',
-    create_readme      => 'README',
-    license            => 'perl',
-    no_index           => { 'directory' => [ 'cover_db_test', 't', ], },
-    requires           => {
+    module_name => 'Devel::Cover::Report::Clover',
+
+    #    create_makefile_pl => 'traditional',
+    create_readme => 'README',
+    license       => 'perl',
+    no_index      => { 'directory' => [ 'cover_db_test', 't', ], },
+    requires      => {
         'Class::Accessor' => 0,
         'Devel::Cover'    => 0,
         'HTML::Parser'    => 0,    # For HTML::Entities
