@@ -3,7 +3,7 @@ package Devel::Cover::Report::Clover;
 use strict;
 use warnings;
 
-our $VERSION = "0.28";
+our $VERSION = "0.29";
 
 use Devel::Cover::Report::Clover::Builder;
 use Getopt::Long;

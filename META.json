@@ -22,6 +22,7 @@
    "prereqs" : {
       "build" : {
          "requires" : {
+            "Devel::Cover" : 0,
             "TAP::Harness" : 0,
             "Test::Exception" : 0,
             "Test::MockObject" : 0,
@@ -48,7 +49,7 @@
    "provides" : {
       "Devel::Cover::Report::Clover" : {
          "file" : "lib/Devel/Cover/Report/Clover.pm",
-         "version" : "0.28"
+         "version" : "0.29"
       },
       "Devel::Cover::Report::Clover::Builder" : {
          "file" : "lib/Devel/Cover/Report/Clover/Builder.pm",
@@ -93,5 +94,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.28"
+   "version" : "0.29"
 }

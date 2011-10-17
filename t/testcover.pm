@@ -64,7 +64,8 @@ sub cover_cmd {
 }
 
 sub perl_cmd {
-    return first {-f} ( $Config{perlpath}, $^W );
+    my $found = first {-f} ( $Config{perlpath}, $^W );
+    return $found || 'perl';
 }
 
 sub test_commands_exist {

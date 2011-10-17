@@ -3,6 +3,7 @@ abstract: 'Backend for Clover reporting of coverage statistics'
 author:
   - 'David Bartle <captindave@gmail.com>'
 build_requires:
+  Devel::Cover: 0
   TAP::Harness: 0
   Test::Exception: 0
   Test::MockObject: 0
@@ -23,7 +24,7 @@ no_index:
 provides:
   Devel::Cover::Report::Clover:
     file: lib/Devel/Cover/Report/Clover.pm
-    version: 0.28
+    version: 0.29
   Devel::Cover::Report::Clover::Builder:
     file: lib/Devel/Cover/Report/Clover/Builder.pm
     version: 0
@@ -60,4 +61,4 @@ requires:
   Template: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.28
+version: 0.29

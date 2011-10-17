@@ -1,5 +1,11 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.29 - 17th October 2011
+ - Decided to take out command existance prereq testing
+   out of the Build.PL and Makefile.PL sections.  Will 
+   try and solve the missing command problems in other ways
+   to prevent cpan tests from exploding
+
 Release 0.28 - 17th October 2011
  - One more place to find 'perl' binary '$^X'
  - One more place to find 'cover' binary '$Devel::Cover::Inc::Base'
