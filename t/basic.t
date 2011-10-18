@@ -64,6 +64,10 @@ my @test = (
         throws_ok( sub { $reportable->report() }, '/implement/', $t );
     },
     sub {
+        my $t = "reportable->summarize - dies";
+        throws_ok( sub { $reportable->summarize() }, '/implement/', $t );
+    },
+    sub {
         my $t = "reportable->metrics - dies";
         throws_ok( sub { $reportable->metrics() }, '/implement/', $t );
     },

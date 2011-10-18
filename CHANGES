@@ -5,6 +5,8 @@ Release 0.30 - 18th October 2011
  - BUG: make sure to pass project name from the command line
  - BUG: element (and covered element) totals were wrong and sometimes
    even zero
+ - Refactored metrics call to reduce duplication.  Tests to
+   help test this refactor.
 
 Release 0.29 - 17th October 2011
  - Decided to take out command existance prereq testing
