@@ -3,7 +3,7 @@ package Devel::Cover::Report::Clover;
 use strict;
 use warnings;
 
-our $VERSION = "0.30";
+our $VERSION = "0.31";
 
 use Devel::Cover::Report::Clover::Builder;
 use Getopt::Long;
@@ -96,17 +96,15 @@ parsed.  This can be any string you want and it defaults to
 
 =back
 
-=item outputfile
-
-Specifies the filename of the main output file.  The default is
-F<coverage.html>.  Specify F<index.html> if you just want to publish the whole
-directory.
-
-
 =head1 SEE ALSO
 
 L<Devel::Cover>
+
 L<http://www.atlassian.com/software/clover/>
+
+L<http://jenkins-ci.org/>
+
+L<https://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin>
 
 =head1 BUGS
 
