@@ -1,10 +1,12 @@
 Devel::Cover::Report::Clover.pm history
 
 Release 0.30 - 18th October 2011
+ - BUG: report was being written twice for no reason
  - BUG: branch+condition needs to be the default
  - BUG: make sure to pass project name from the command line
  - BUG: element (and covered element) totals were wrong and sometimes
    even zero
+ - More tests for end to end testing to ensure files are written
  - Refactored metrics call to reduce duplication.  Tests to
    help test this refactor.
 

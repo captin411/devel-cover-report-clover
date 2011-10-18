@@ -13,13 +13,10 @@ sub report {
     my ( $pkg, $db, $options ) = @_;
 
     my $report = builder( $db, $options );
-    my $xml_string = $report->generate( output_file($options) );
+    my $outfile = output_file($options);
 
-    printf( "Writing clover output file to '%s'...\n", output_file($options) )
-        unless $options->{silent};
-    open( my $fh, '>', output_file($options) ) or die $!;
-    print {$fh} $xml_string;
-    close($fh);
+    printf( "Writing clover output file to '%s'...\n", $outfile ) unless $options->{silent};
+    $report->generate($outfile);
 
 }
 

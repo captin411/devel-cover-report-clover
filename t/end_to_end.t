@@ -243,21 +243,33 @@ my @test = (
         }
     },
     sub {
-        my $t = "report_xml - end to end";
+        my $t = "generate - writes xml file";
 
         my $proj_name = "Multi File";
+        my $b         = BUILDER( { name => $proj_name, db => $MULTI_FILE_DB } );
+        my $outfile   = testcover::test_path('multi_file') . "/clover-1-$$.xml";
+        $b->generate($outfile);
 
-        my $b = BUILDER( { name => $proj_name, db => $MULTI_FILE_DB } );
+        ok( -f $outfile, $t );
+    },
 
-        $b->generate( testcover::test_path('multi_file') . '/clover.xml' );
+    sub {
+        my $t = "report - core report entry point writes file";
 
-        #diag(Dumper($report)); use Data::Dumper;
-        my $expect = {};
+        my $proj_name = "Multi File";
+        my $o         = {
+            'option' => {
+                'projectname' => "Project Name",
+                'outputfile'  => "clover-2-$$.xml"
+            },
+            'silent'  => 1,
+            outputdir => testcover::test_path('multi_file'),
+        };
 
-        ok(1);
+        Devel::Cover::Report::Clover->report( $MULTI_FILE_DB, $o );
+        my $outfile = sprintf( "%s/%s", $o->{outputdir}, $o->{option}{outputfile} );
 
-        #is_deeply( $report, $expect, $t );
-
+        ok( -f $outfile, $t );
     },
 
 );

@@ -35,6 +35,8 @@ sub generate {
 
     my $xml = $self->report_xml();
 
+    die("undef is a terrible file name") if !defined $outfile;
+
     open( my $fh, '>', $outfile ) or die($!);
     print {$fh} $xml;
     close($fh);
