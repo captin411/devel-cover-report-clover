@@ -3,7 +3,7 @@ package Devel::Cover::Report::Clover;
 use strict;
 use warnings;
 
-our $VERSION = "0.29";
+our $VERSION = "0.30";
 
 use Devel::Cover::Report::Clover::Builder;
 use Getopt::Long;
@@ -12,7 +12,8 @@ use Getopt::Long;
 sub report {
     my ( $pkg, $db, $options ) = @_;
 
-    my $report = Devel::Cover::Report::Clover::Builder->new( { db => $db } );
+    my $report = Devel::Cover::Report::Clover::Builder->new(
+        { db => $db, name => $options->{option}{projectname} } );
     my $xml_string = $report->generate( output_file($options) );
 
     printf( "Writing clover output file to '%s'...\n", output_file($options) )

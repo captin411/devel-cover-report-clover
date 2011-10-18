@@ -1,5 +1,10 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.30 - 18th October 2011
+ - BUG: make sure to pass project name from the command line
+ - BUG: element (and covered element) totals were wrong and sometimes
+   even zero
+
 Release 0.29 - 17th October 2011
  - Decided to take out command existance prereq testing
    out of the Build.PL and Makefile.PL sections.  Will 
