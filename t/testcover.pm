@@ -23,14 +23,7 @@ sub run {
     $harness->runtests(@tests);
 
     my $cover_cmd = cover_cmd();
-    if ( !$cover_cmd ) {
-        die('Missing "cover" command');
-    }
-    my $perl_cmd = perl_cmd();
-    if ( !$perl_cmd ) {
-        die('Missing "perl" command');
-    }
-
+    my $perl_cmd  = perl_cmd();
     run_cmd( $perl_cmd, $cover_cmd, $cover_db );
 
     my $db = Devel::Cover::DB->new( db => $cover_db );
@@ -59,17 +52,14 @@ sub run_cmd {
 
 sub cover_cmd {
     my $p_which = p_which('cover');
-
-    return first {-f} ( $p_which, $Devel::Cover::Inc::Base . "/cover" );
+    my $found
+        = first { defined $_ && $_ && -f $_ } ( $p_which, $Devel::Cover::Inc::Base . "/cover" );
+    return $found || 'cover';
 }
 
 sub perl_cmd {
-    my $found = first {-f} ( $Config{perlpath}, $^W );
+    my $found = first { defined $_ && $_ && -f $_ } ( $Config{perlpath}, $^W );
     return $found || 'perl';
-}
-
-sub test_commands_exist {
-    return cover_cmd() && perl_cmd();
 }
 
 sub cover_db_path {

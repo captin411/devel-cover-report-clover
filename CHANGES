@@ -9,6 +9,7 @@ Release 0.30 - 18th October 2011
  - More tests for end to end testing to ensure files are written
  - Refactored metrics call to reduce duplication.  Tests to
    help test this refactor.
+ - a few less undef warnings
 
 Release 0.29 - 17th October 2011
  - Decided to take out command existance prereq testing
