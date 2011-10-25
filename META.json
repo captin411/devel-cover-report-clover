@@ -49,7 +49,7 @@
    "provides" : {
       "Devel::Cover::Report::Clover" : {
          "file" : "lib/Devel/Cover/Report/Clover.pm",
-         "version" : "0.30"
+         "version" : "0.31"
       },
       "Devel::Cover::Report::Clover::Builder" : {
          "file" : "lib/Devel/Cover/Report/Clover/Builder.pm",
@@ -94,5 +94,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.30"
+   "version" : "0.31"
 }

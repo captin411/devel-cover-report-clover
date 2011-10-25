@@ -1,5 +1,9 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.31 - 25th October 2011
+ - BUG: if summary was empty the script would die
+ - minor documentation adjustments
+
 Release 0.30 - 18th October 2011
  - BUG: report was being written twice for no reason
  - BUG: branch+condition needs to be the default

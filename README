@@ -26,13 +26,14 @@ OPTIONS
         system once it is parsed. This can be any string you want and it
         defaults to 'Devel::Cover::Report::Clover'.
 
-    outputfile
-    Specifies the filename of the main output file. The default is
-    coverage.html. Specify index.html if you just want to publish the whole
-    directory.
-
 SEE ALSO
-    Devel::Cover http://www.atlassian.com/software/clover/
+    Devel::Cover
+
+    http://www.atlassian.com/software/clover/
+
+    http://jenkins-ci.org/
+
+    https://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin
 
 BUGS
     https://github.com/captin411/Devel-Cover-Report-Clover/issues

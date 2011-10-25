@@ -54,7 +54,17 @@ sub files {
 sub summarize {
     my ($self) = @_;
 
-    my %s = %{ $self->builder->db->summary('Total') };
+    my $db = $self->builder->db;
+    if ( !$db ) {
+        return {};
+    }
+
+    my $summary = $db->summary('Total');
+    if ( !$summary ) {
+        return {};
+    }
+
+    my %s = %{$summary};
 
     my @criteria = $self->builder->accept_criteria();
 
