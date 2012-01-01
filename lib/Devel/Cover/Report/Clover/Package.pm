@@ -8,7 +8,7 @@ __PACKAGE__->mk_accessors(qw(classes));
 sub report {
     my ($self) = @_;
 
-    my $name = $self->name() || '';
+    my $name = $self->name() || 'main';
     ( my $name_dotted = $name ) =~ s/\W+/./g;
 
     my $data = {
