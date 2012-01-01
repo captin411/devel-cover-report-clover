@@ -6,7 +6,7 @@ use base qw(Devel::Cover::Report::Clover::Reportable);
 sub report {
     my ($self) = @_;
 
-    my @p_reports = map { $_->report } @{ $self->packages };
+    my @p_reports = map { $_->report } sort { $a->name cmp $b->name } @{ $self->packages };
 
     my $data = {
         name     => $self->name(),

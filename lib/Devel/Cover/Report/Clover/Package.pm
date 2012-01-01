@@ -8,7 +8,7 @@ __PACKAGE__->mk_accessors(qw(classes));
 sub report {
     my ($self) = @_;
 
-    my $name = $self->name() || '';
+    my $name = $self->name() || 'main';
     ( my $name_dotted = $name ) =~ s/\W+/./g;
 
     my $data = {
@@ -30,7 +30,7 @@ sub files {
     }
 
     my @ret;
-    foreach my $name ( keys %frag_classes ) {
+    foreach my $name ( sort keys %frag_classes ) {
         my $classes = $frag_classes{$name};
         my $file    = Devel::Cover::Report::Clover::PackageFile->new(
             {   name    => $name,
