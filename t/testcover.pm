@@ -3,6 +3,7 @@ use Config;
 use Devel::Cover::DB;
 use Devel::Cover::Inc;
 use File::Glob qw(bsd_glob);
+use File::Path qw(remove_tree);
 use FindBin;
 use List::Util qw(first);
 use TAP::Harness;
@@ -13,10 +14,25 @@ sub run {
     my $path     = test_path($name);
     my $cover_db = cover_db_path($name);
 
+    # Not all @INC paths were set in  Devel::Cover::Inc::Inc
+    # when CPAN was used to install Devel::Cover on OSX Lion.
+    # ...try and fake this
+    my @additional_inc_ignores;
+    foreach my $i (@INC) {
+        if( ! grep /^$i$/, @Devel::Cover::Inc::Inc ) {
+            push @additional_inc_ignores, $i;
+        }
+    }
+    my $incs = join ',', map { '+inc,'.$_ } @additional_inc_ignores;
+
+    if( -d "$cover_db" ) {
+        remove_tree($cover_db);
+    }
+
     my $harness = TAP::Harness->new(
         {   verbosity => -3,
             lib       => [$path],
-            switches  => "-MDevel::Cover=-db,$cover_db"
+            switches  => "-MDevel::Cover=-db,$cover_db,$incs"
         }
     );
     my @tests = bsd_glob("$path/*.t");
