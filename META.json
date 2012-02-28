@@ -4,7 +4,7 @@
       "David Bartle <captindave@gmail.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112150",
+   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120530",
    "license" : [
       "perl_5"
    ],
@@ -22,34 +22,34 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Devel::Cover" : 0,
-            "TAP::Harness" : 0,
-            "Test::Exception" : 0,
-            "Test::MockObject" : 0,
-            "Test::More" : 0
+            "Devel::Cover" : "0",
+            "TAP::Harness" : "0",
+            "Test::Exception" : "0",
+            "Test::MockObject" : "0",
+            "Test::More" : "0"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.4"
          }
       },
       "runtime" : {
          "recommends" : {
-            "Test::MockTime" : 0
+            "Test::MockTime" : "0"
          },
          "requires" : {
-            "Class::Accessor" : 0,
-            "Devel::Cover" : 0,
-            "HTML::Parser" : 0,
-            "Template" : 0
+            "Class::Accessor" : "0",
+            "Devel::Cover" : "0",
+            "HTML::Parser" : "0",
+            "Template" : "0"
          }
       }
    },
    "provides" : {
       "Devel::Cover::Report::Clover" : {
          "file" : "lib/Devel/Cover/Report/Clover.pm",
-         "version" : "0.32"
+         "version" : "0.34"
       },
       "Devel::Cover::Report::Clover::Builder" : {
          "file" : "lib/Devel/Cover/Report/Clover/Builder.pm",
@@ -94,5 +94,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.32"
+   "version" : "0.34"
 }
