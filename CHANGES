@@ -1,5 +1,9 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.32 - 27th February 2012
+ - use the package name 'main' instead of ''
+ - sort the package names
+
 Release 0.31 - 25th October 2011
  - BUG: if summary was empty the script would die
  - minor documentation adjustments

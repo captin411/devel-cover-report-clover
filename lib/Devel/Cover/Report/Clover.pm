@@ -3,7 +3,7 @@ package Devel::Cover::Report::Clover;
 use strict;
 use warnings;
 
-our $VERSION = "0.31";
+our $VERSION = "0.32";
 
 use Devel::Cover::Report::Clover::Builder;
 use Getopt::Long;
@@ -110,13 +110,17 @@ L<https://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin>
 
 L<https://github.com/captin411/Devel-Cover-Report-Clover/issues>
 
+=head1 CREDITS
+
+Jun Kuriyama - nice cosmetic changes to package names
+
 =head1 AUTHOR
 
 David Bartle <captindave@gmail.com>
 
 =head1 LICENSE
 
-Copyright 2011, David Bartle (captindave@gmail.com) 
+Copyright David Bartle (captindave@gmail.com) 
 
 This software is free.  It is licensed under the same terms as Perl itself.
 

@@ -109,44 +109,10 @@ my @test = (
                                 'ncloc'               => 8,
                                 'statements'          => 8
                             },
-                            'name'        => '',
-                            'name_dotted' => ''
+                            'name'        => 'main',
+                            'name_dotted' => 'main'
                         },
                         {   'files' => [
-                                {   'classes' => [
-                                        {   'metrics' => {
-                                                'complexity'          => 0,
-                                                'conditionals'        => 0,
-                                                'coveredconditionals' => 0,
-                                                'coveredelements'     => 3,
-                                                'coveredmethods'      => 1,
-                                                'coveredstatements'   => 2,
-                                                'elements'            => 3,
-                                                'loc'                 => 3,
-                                                'methods'             => 1,
-                                                'ncloc'               => 6,
-                                                'statements'          => 2
-                                            },
-                                            'name'        => 'First',
-                                            'name_dotted' => 'First'
-                                        }
-                                    ],
-                                    'metrics' => {
-                                        'classes'             => 1,
-                                        'complexity'          => 0,
-                                        'conditionals'        => 0,
-                                        'coveredconditionals' => 0,
-                                        'coveredelements'     => 3,
-                                        'coveredmethods'      => 1,
-                                        'coveredstatements'   => 2,
-                                        'elements'            => 3,
-                                        'loc'                 => 3,
-                                        'methods'             => 1,
-                                        'ncloc'               => 6,
-                                        'statements'          => 2
-                                    },
-                                    'name' => 'cover_db_test/multi_file/MultiFile/First.pm'
-                                },
                                 {   'classes' => [
                                         {   'metrics' => {
                                                 'complexity'          => 0,
@@ -180,6 +146,40 @@ my @test = (
                                         'statements'          => 11
                                     },
                                     'name' => 'cover_db_test/multi_file/MultiFile.pm'
+                                },
+                                {   'classes' => [
+                                        {   'metrics' => {
+                                                'complexity'          => 0,
+                                                'conditionals'        => 0,
+                                                'coveredconditionals' => 0,
+                                                'coveredelements'     => 3,
+                                                'coveredmethods'      => 1,
+                                                'coveredstatements'   => 2,
+                                                'elements'            => 3,
+                                                'loc'                 => 3,
+                                                'methods'             => 1,
+                                                'ncloc'               => 6,
+                                                'statements'          => 2
+                                            },
+                                            'name'        => 'First',
+                                            'name_dotted' => 'First'
+                                        }
+                                    ],
+                                    'metrics' => {
+                                        'classes'             => 1,
+                                        'complexity'          => 0,
+                                        'conditionals'        => 0,
+                                        'coveredconditionals' => 0,
+                                        'coveredelements'     => 3,
+                                        'coveredmethods'      => 1,
+                                        'coveredstatements'   => 2,
+                                        'elements'            => 3,
+                                        'loc'                 => 3,
+                                        'methods'             => 1,
+                                        'ncloc'               => 6,
+                                        'statements'          => 2
+                                    },
+                                    'name' => 'cover_db_test/multi_file/MultiFile/First.pm'
                                 },
                                 {   'classes' => [
                                         {   'metrics' => {
