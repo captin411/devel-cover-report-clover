@@ -15,6 +15,8 @@ my $build = Module::Build->new(
     recommends     => { 'Test::MockTime' => 0, },
     build_requires => {
         'Devel::Cover'     => '0',
+        'File::Path'       => '2.06',
+        'List::Util'       => '0',
         'TAP::Harness'     => '0',
         'Test::Exception'  => '0',
         'Test::More'       => '0',
