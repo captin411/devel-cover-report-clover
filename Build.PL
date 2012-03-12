@@ -21,6 +21,18 @@ my $build = Module::Build->new(
         'Test::Exception'  => '0',
         'Test::More'       => '0',
         'Test::MockObject' => '0',
+        'File::Which'      => '1.09',
+        'FindBin'          => '0',
+        'List::Util'       => '0',
+        'File::Path'       => '0',
+    },
+    meta_add           => {
+        resources  => {
+            license    => 'http://dev.perl.org/licenses/',
+            homepage   => 'https://github.com/captin411/devel-cover-report-clover',
+            repository => 'https://github.com/captin411/devel-cover-report-clover.git',
+            bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Devel-Cover-Report-Clover',
+        },
     },
 );
 $build->add_build_element('tt');

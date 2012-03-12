@@ -7,6 +7,7 @@ use File::Path qw(remove_tree);
 use FindBin;
 use List::Util qw(first);
 use TAP::Harness;
+use File::Which qw(which);
 
 sub run {
     my $name = shift;
@@ -47,14 +48,6 @@ sub run {
 
 }
 
-sub p_which {
-    my $command = shift;
-
-    return first {-f}
-    map {"$_/$command"} @Config{qw/installscript installsitebin installvendorbin installbin/};
-
-}
-
 sub run_cmd {
     my @parts = @_;
     my $str = sprintf( "'%s'", join "','", @parts );
@@ -67,7 +60,7 @@ sub run_cmd {
 }
 
 sub cover_cmd {
-    my $p_which = p_which('cover');
+    my $p_which = which('cover');
     my $found
         = first { defined $_ && $_ && -f $_ } ( $p_which, $Devel::Cover::Inc::Base . "/cover" );
     return $found || 'cover';

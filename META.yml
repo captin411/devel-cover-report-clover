@@ -4,6 +4,10 @@ author:
   - 'David Bartle <captindave@gmail.com>'
 build_requires:
   Devel::Cover: 0
+  File::Path: 0
+  File::Which: 1.09
+  FindBin: 0
+  List::Util: 0
   TAP::Harness: 0
   Test::Exception: 0
   Test::MockObject: 0
@@ -60,5 +64,8 @@ requires:
   HTML::Parser: 0
   Template: 0
 resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Devel-Cover-Report-Clover
+  homepage: https://github.com/captin411/devel-cover-report-clover
   license: http://dev.perl.org/licenses/
+  repository: https://github.com/captin411/devel-cover-report-clover.git
 version: 0.34
