@@ -3,6 +3,7 @@ Devel-Cover-Report-Clover-*
 MANIFEST.SKIP
 MANIFEST.SKIP.bak
 MANIFEST.bak
+MYMETA.json
 MYMETA.yml
 Makefile
 _build
