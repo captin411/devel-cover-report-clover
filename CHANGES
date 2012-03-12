@@ -1,5 +1,9 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 0.35 - 13th March 2012
+ - Fix RT#75376 thanks to Olivier Mengué - unit tests
+   pass when using local::lib based installs
+
 Release 0.34 - 27th February 2012
  - dist version mistake
 

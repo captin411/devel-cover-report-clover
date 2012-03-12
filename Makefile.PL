@@ -2,24 +2,24 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-  'NAME' => 'Devel::Cover::Report::Clover',
-  'VERSION_FROM' => 'lib/Devel/Cover/Report/Clover.pm',
-  'PREREQ_PM' => {
-                   'Class::Accessor' => 0,
-                   'Devel::Cover' => 0,
-                   'File::Path' => 0,
-                   'File::Which' => '1.09',
-                   'FindBin' => 0,
-                   'HTML::Parser' => 0,
-                   'List::Util' => 0,
-                   'TAP::Harness' => 0,
-                   'Template' => 0,
-                   'Test::Exception' => 0,
-                   'Test::MockObject' => 0,
-                   'Test::More' => 0
-                 },
-  'INSTALLDIRS' => 'site',
-  'EXE_FILES' => [],
-  'PL_FILES' => {}
-)
+          'PL_FILES' => {},
+          'INSTALLDIRS' => 'site',
+          'NAME' => 'Devel::Cover::Report::Clover',
+          'EXE_FILES' => [],
+          'VERSION_FROM' => 'lib/Devel/Cover/Report/Clover.pm',
+          'PREREQ_PM' => {
+                           'Test::MockObject' => 0,
+                           'Test::Exception' => 0,
+                           'FindBin' => 0,
+                           'File::Which' => '1.08',
+                           'Class::Accessor' => 0,
+                           'Template' => 0,
+                           'TAP::Harness' => 0,
+                           'Test::More' => 0,
+                           'List::Util' => 0,
+                           'HTML::Parser' => 0,
+                           'File::Path' => '2.06',
+                           'Devel::Cover' => 0
+                         }
+        )
 ;

@@ -41,6 +41,8 @@ BUGS
 CREDITS
     Jun Kuriyama - nice cosmetic changes to package names
 
+    Olivier Mengué - fix tests for those using local::lib
+
 AUTHOR
     David Bartle <captindave@gmail.com>
 

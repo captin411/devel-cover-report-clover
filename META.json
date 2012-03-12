@@ -23,8 +23,8 @@
       "build" : {
          "requires" : {
             "Devel::Cover" : "0",
-            "File::Path" : "0",
-            "File::Which" : "1.09",
+            "File::Path" : "2.06",
+            "File::Which" : "1.08",
             "FindBin" : "0",
             "List::Util" : "0",
             "TAP::Harness" : "0",
@@ -53,7 +53,7 @@
    "provides" : {
       "Devel::Cover::Report::Clover" : {
          "file" : "lib/Devel/Cover/Report/Clover.pm",
-         "version" : "0.34"
+         "version" : "0.35"
       },
       "Devel::Cover::Report::Clover::Builder" : {
          "file" : "lib/Devel/Cover/Report/Clover/Builder.pm",
@@ -105,5 +105,5 @@
          "url" : "https://github.com/captin411/devel-cover-report-clover.git"
       }
    },
-   "version" : "0.34"
+   "version" : "0.35"
 }
