@@ -20,6 +20,7 @@ sub report {
         name        => $name,
         name_dotted => $name_dotted,
         metrics     => $self->metrics(),
+        lines       => $self->file_fragment()->lines()
     };
     return $data;
 }

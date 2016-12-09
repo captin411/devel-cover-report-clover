@@ -74,7 +74,7 @@ my @test = (
                                                 'statements'          => 8
                                             },
                                             'name'        => 'MultiFile',
-                                            'name_dotted' => 'MultiFile'
+                                            'name_dotted' => 'MultiFile',
                                         }
                                     ],
                                     'metrics' => {
@@ -238,8 +238,13 @@ my @test = (
                 },
                 'version' => $Devel::Cover::Report::Clover::VERSION
             };
-
-            is_deeply( $report, $expect, $t );
+            subtest $t => sub {
+                ok(delete $report->{project}{packages}[0]{files}[0]{classes}[0]{lines}, 'line reporting 1 (existence checked)');
+                ok(delete $report->{project}{packages}[1]{files}[0]{classes}[0]{lines}, 'line reporting 2 (existence checked)');
+                ok(delete $report->{project}{packages}[1]{files}[1]{classes}[0]{lines}, 'line reporting 3 (existence checked)');
+                ok(delete $report->{project}{packages}[1]{files}[2]{classes}[0]{lines}, 'line reporting 4 (existence checked)');
+                is_deeply( $report, $expect, 'deep inspection of rest' );
+            }
         }
     },
     sub {
