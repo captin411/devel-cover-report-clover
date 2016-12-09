@@ -15,7 +15,7 @@
             [%- FOREACH file IN package.files;
                 SET f = file.metrics;
             %]
-            <file path="[% file.name | html_entity %]" name="[% file.name | html_entity %]">
+            <file path="[% file.name | html_entity %]" name="[% file.filename | html_entity %]">
                 <metrics elements="[% f.elements %]" coveredelements="[% f.coveredelements %]" statements="[% f.statements %]" coveredstatements="[% f.coveredstatements %]" complexity="[% f.complexity %]" loc="[% f.loc %]" ncloc="[% f.ncloc %]" classes="[% f.classes %]" conditionals="[% f.conditionals %]" coveredconditionals="[% f.coveredconditionals %]" methods="[% f.methods %]" coveredmethods="[% f.coveredmethods %]"/>
                 [%- FOREACH class IN file.classes;
                     SET c = class.metrics;
