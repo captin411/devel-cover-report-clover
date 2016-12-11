@@ -25,7 +25,8 @@
                 </class>
                 [%- END %]
                 [%- FOREACH class IN file.classes; %][%- FOREACH line IN class.lines %][%- FOREACH statement IN line.criteria.statement %]
-                <line num="[% line.number %]" count="[% statement.covered %]" type="stmt" />[% END %][%- FOREACH subroutine IN line.criteria.subroutine %]
+                <line num="[% line.number %]" count="[% statement.covered %]" type="stmt" />[% END %][%- FOREACH branch IN line.criteria.branch %]
+                <line num="[% line.number %]" truecount="[% branch.covered %]" falsecount="[% branch.uncoverable %]" type="cond" />[% END %][%- FOREACH subroutine IN line.criteria.subroutine %]
                 <line num="[% line.number %]" count="[% subroutine.covered %]" type="method" />[% END %][% END %][% END %]
             </file>
             [%- END %]
