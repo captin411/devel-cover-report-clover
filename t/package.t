@@ -41,6 +41,12 @@ my @test = (
         is( scalar @classes, 1, $t );
     },
     sub {
+        my $t        = "filename";
+        my $package  = $proj->package('');
+        my $filename = $package->files()->[0]->filename();
+        is( $filename, 'MultiFile.pm', $t );
+    },
+    sub {
         my $t       = "summarize";
         my $package = $proj->package('MultiFile');
         my $s       = $package->summarize()->{total};

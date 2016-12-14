@@ -106,15 +106,17 @@ package Devel::Cover::Report::Clover::PackageFile;
 use strict;
 use warnings;
 use Devel::Cover::Criterion;
+use File::Spec;
 use base qw(Devel::Cover::Report::Clover::Reportable);
 __PACKAGE__->mk_accessors(qw(classes));
 
 sub report {
     my ($self) = @_;
     my $data = {
-        name    => $self->name(),
-        metrics => $self->metrics(),
-        classes => [ map { $_->report } @{ $self->classes } ],
+        name     => $self->name(),
+        filename => $self->filename(),
+        metrics  => $self->metrics(),
+        classes  => [ map { $_->report } @{ $self->classes } ],
     };
     return $data;
 }
@@ -172,5 +174,10 @@ sub ncloc {
     return $ncloc;
 }
 
-1;
+sub filename {
+    my ($self) = @_;
+    my @splitDir = File::Spec->splitdir($self->name());
+    return $splitDir[-1];
+}
+
 1;

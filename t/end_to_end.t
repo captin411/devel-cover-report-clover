@@ -91,7 +91,8 @@ my @test = (
                                         'ncloc'               => 8,
                                         'statements'          => 8
                                     },
-                                    'name' => 'cover_db_test/multi_file/MultiFile.pm'
+                                    'name'     => 'cover_db_test/multi_file/MultiFile.pm',
+                                    'filename' => 'MultiFile.pm'
                                 }
                             ],
                             'metrics' => {
@@ -145,7 +146,8 @@ my @test = (
                                         'ncloc'               => 14,
                                         'statements'          => 11
                                     },
-                                    'name' => 'cover_db_test/multi_file/MultiFile.pm'
+                                    'name'     => 'cover_db_test/multi_file/MultiFile.pm',
+                                    'filename' => 'MultiFile.pm'
                                 },
                                 {   'classes' => [
                                         {   'metrics' => {
@@ -179,7 +181,8 @@ my @test = (
                                         'ncloc'               => 6,
                                         'statements'          => 2
                                     },
-                                    'name' => 'cover_db_test/multi_file/MultiFile/First.pm'
+                                    'name'     => 'cover_db_test/multi_file/MultiFile/First.pm',
+                                    'filename' => 'First.pm'
                                 },
                                 {   'classes' => [
                                         {   'metrics' => {
@@ -213,7 +216,8 @@ my @test = (
                                         'ncloc'               => 6,
                                         'statements'          => 2
                                     },
-                                    'name' => 'cover_db_test/multi_file/MultiFile/Second.pm'
+                                    'name'     => 'cover_db_test/multi_file/MultiFile/Second.pm',
+                                    'filename' => 'Second.pm'
                                 }
                             ],
                             'metrics' => {
