@@ -242,13 +242,11 @@ my @test = (
                 },
                 'version' => $Devel::Cover::Report::Clover::VERSION
             };
-            subtest $t => sub {
-                ok(delete $report->{project}{packages}[0]{files}[0]{classes}[0]{lines}, 'line reporting 1 (existence checked)');
-                ok(delete $report->{project}{packages}[1]{files}[0]{classes}[0]{lines}, 'line reporting 2 (existence checked)');
-                ok(delete $report->{project}{packages}[1]{files}[1]{classes}[0]{lines}, 'line reporting 3 (existence checked)');
-                ok(delete $report->{project}{packages}[1]{files}[2]{classes}[0]{lines}, 'line reporting 4 (existence checked)');
-                is_deeply( $report, $expect, 'deep inspection of rest' );
-            }
+            ok(delete $report->{project}{packages}[0]{files}[0]{classes}[0]{lines}, 'line reporting 1 (existence checked)');
+            ok(delete $report->{project}{packages}[1]{files}[0]{classes}[0]{lines}, 'line reporting 2 (existence checked)');
+            ok(delete $report->{project}{packages}[1]{files}[1]{classes}[0]{lines}, 'line reporting 3 (existence checked)');
+            ok(delete $report->{project}{packages}[1]{files}[2]{classes}[0]{lines}, 'line reporting 4 (existence checked)');
+            is_deeply( $report, $expect, 'deep inspection of rest' );
         }
     },
     sub {
@@ -283,9 +281,9 @@ my @test = (
 
 );
 
-plan tests => scalar @test;
-
 $_->() foreach @test;
+
+done_testing();
 
 sub BUILDER {
     return Devel::Cover::Report::Clover::Builder->new(shift);
