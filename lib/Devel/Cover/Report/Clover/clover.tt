@@ -24,6 +24,10 @@
                     <metrics elements="[% c.elements %]" coveredelements="[% c.coveredelements %]" statements="[% c.statements %]" coveredstatements="[% c.coveredstatements %]" complexity="[% c.complexity %]" loc="[% c.loc %]" ncloc="[% c.ncloc %]" conditionals="[% c.conditionals %]" coveredconditionals="[% c.coveredconditionals %]" methods="[% c.methods %]" coveredmethods="[% c.coveredmethods %]"/>
                 </class>
                 [%- END %]
+                [%- FOREACH class IN file.classes; %][%- FOREACH line IN class.lines %][%- FOREACH statement IN line.criteria.statement %]
+                <line num="[% line.number %]" count="[% statement.covered %]" type="stmt" />[% END %][%- FOREACH branch IN line.criteria.branch %]
+                <line num="[% line.number %]" truecount="[% branch.covered %]" falsecount="[% branch.uncoverable %]" type="cond" />[% END %][%- FOREACH subroutine IN line.criteria.subroutine %]
+                <line num="[% line.number %]" count="[% subroutine.covered %]" type="method" />[% END %][% END %][% END %]
             </file>
             [%- END %]
         </package>
