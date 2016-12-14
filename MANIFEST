@@ -25,7 +25,7 @@ README
 TODO
 t/00.load.t
 t/basic.t
-t/builer.t
+t/builder.t
 t/class.t
 t/end_to_end.t
 t/end_to_end_no_stats.t
