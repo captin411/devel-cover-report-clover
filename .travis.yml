@@ -8,7 +8,7 @@ perl:
   - "5.12"
   - "5.10"
 before_install:
-  - cpanm Test::MockTime
+  - cpanm -v --notest Test::MockTime
 install:
   - cpanm -v --installdeps --notest .
 script: "perl Build.PL; ./Build test"
