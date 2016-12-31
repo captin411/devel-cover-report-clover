@@ -1,5 +1,9 @@
 Devel::Cover::Report::Clover.pm history
 
+Release 1.00 - 30th December 2016
+ - Added branch, statement, and subroutine details thanks to
+   Oliver Trosien
+
 Release 0.35 - 13th March 2012
  - Fix RT#75376 thanks to Olivier Mengué - unit tests
    pass when using local::lib based installs

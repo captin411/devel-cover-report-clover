@@ -4,7 +4,7 @@
       "David Bartle <captindave@gmail.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120530",
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -35,7 +35,7 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.4"
+            "Module::Build" : "0.40"
          }
       },
       "runtime" : {
@@ -53,43 +53,34 @@
    "provides" : {
       "Devel::Cover::Report::Clover" : {
          "file" : "lib/Devel/Cover/Report/Clover.pm",
-         "version" : "0.35"
+         "version" : "1.00"
       },
       "Devel::Cover::Report::Clover::Builder" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Builder.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/Builder.pm"
       },
       "Devel::Cover::Report::Clover::Class" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Class.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/Class.pm"
       },
       "Devel::Cover::Report::Clover::File" : {
-         "file" : "lib/Devel/Cover/Report/Clover/File.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/File.pm"
       },
       "Devel::Cover::Report::Clover::FileFragment" : {
-         "file" : "lib/Devel/Cover/Report/Clover/File.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/File.pm"
       },
       "Devel::Cover::Report::Clover::FileRegistry" : {
-         "file" : "lib/Devel/Cover/Report/Clover/FileRegistry.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/FileRegistry.pm"
       },
       "Devel::Cover::Report::Clover::Package" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Package.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/Package.pm"
       },
       "Devel::Cover::Report::Clover::PackageFile" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Package.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/Package.pm"
       },
       "Devel::Cover::Report::Clover::Project" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Project.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/Project.pm"
       },
       "Devel::Cover::Report::Clover::Reportable" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Reportable.pm",
-         "version" : 0
+         "file" : "lib/Devel/Cover/Report/Clover/Reportable.pm"
       }
    },
    "release_status" : "stable",
@@ -105,5 +96,5 @@
          "url" : "https://github.com/captin411/devel-cover-report-clover.git"
       }
    },
-   "version" : "0.35"
+   "version" : "1.00"
 }

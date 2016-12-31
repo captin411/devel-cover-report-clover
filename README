@@ -43,6 +43,8 @@ CREDITS
 
     Olivier Mengué - fix tests for those using local::lib
 
+    Oliver Trosien - added branch, statement, and subroutine details
+
 AUTHOR
     David Bartle <captindave@gmail.com>
 

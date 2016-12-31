@@ -3,7 +3,7 @@ package Devel::Cover::Report::Clover;
 use strict;
 use warnings;
 
-our $VERSION = "0.35";
+our $VERSION = "1.00";
 
 use Devel::Cover::Report::Clover::Builder;
 use Getopt::Long;
@@ -115,6 +115,8 @@ L<https://github.com/captin411/Devel-Cover-Report-Clover/issues>
 Jun Kuriyama - nice cosmetic changes to package names
 
 Olivier Mengué - fix tests for those using local::lib
+
+Oliver Trosien - added branch, statement, and subroutine details
 
 =head1 AUTHOR
 
