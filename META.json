@@ -53,34 +53,43 @@
    "provides" : {
       "Devel::Cover::Report::Clover" : {
          "file" : "lib/Devel/Cover/Report/Clover.pm",
-         "version" : "1.00"
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::Builder" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Builder.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/Builder.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::Class" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Class.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/Class.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::File" : {
-         "file" : "lib/Devel/Cover/Report/Clover/File.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/File.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::FileFragment" : {
-         "file" : "lib/Devel/Cover/Report/Clover/File.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/File.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::FileRegistry" : {
-         "file" : "lib/Devel/Cover/Report/Clover/FileRegistry.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/FileRegistry.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::Package" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Package.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/Package.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::PackageFile" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Package.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/Package.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::Project" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Project.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/Project.pm",
+         "version" : "1.01"
       },
       "Devel::Cover::Report::Clover::Reportable" : {
-         "file" : "lib/Devel/Cover/Report/Clover/Reportable.pm"
+         "file" : "lib/Devel/Cover/Report/Clover/Reportable.pm",
+         "version" : "1.01"
       }
    },
    "release_status" : "stable",
@@ -96,5 +105,5 @@
          "url" : "https://github.com/captin411/devel-cover-report-clover.git"
       }
    },
-   "version" : "1.00"
+   "version" : "1.01"
 }

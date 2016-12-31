@@ -3,23 +3,23 @@ use ExtUtils::MakeMaker;
 WriteMakefile
 (
   'NAME' => 'Devel::Cover::Report::Clover',
-  'VERSION_FROM' => 'lib/Devel/Cover/Report/Clover.pm',
+  'INSTALLDIRS' => 'site',
   'PL_FILES' => {},
-  'EXE_FILES' => [],
+  'VERSION_FROM' => 'lib/Devel/Cover/Report/Clover.pm',
   'PREREQ_PM' => {
-                   'Devel::Cover' => 0,
-                   'Template' => 0,
-                   'HTML::Parser' => 0,
-                   'Test::More' => 0,
+                   'Class::Accessor' => 0,
+                   'File::Which' => '1.08',
+                   'Test::MockObject' => 0,
                    'File::Path' => '2.06',
                    'TAP::Harness' => 0,
-                   'List::Util' => 0,
-                   'Class::Accessor' => 0,
+                   'Template' => 0,
                    'Test::Exception' => 0,
-                   'Test::MockObject' => 0,
                    'FindBin' => 0,
-                   'File::Which' => '1.08'
+                   'Test::More' => 0,
+                   'Devel::Cover' => 0,
+                   'List::Util' => 0,
+                   'HTML::Parser' => 0
                  },
-  'INSTALLDIRS' => 'site'
+  'EXE_FILES' => []
 )
 ;

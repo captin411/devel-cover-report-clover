@@ -28,25 +28,34 @@ no_index:
 provides:
   Devel::Cover::Report::Clover:
     file: lib/Devel/Cover/Report/Clover.pm
-    version: '1.00'
+    version: '1.01'
   Devel::Cover::Report::Clover::Builder:
     file: lib/Devel/Cover/Report/Clover/Builder.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::Class:
     file: lib/Devel/Cover/Report/Clover/Class.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::File:
     file: lib/Devel/Cover/Report/Clover/File.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::FileFragment:
     file: lib/Devel/Cover/Report/Clover/File.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::FileRegistry:
     file: lib/Devel/Cover/Report/Clover/FileRegistry.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::Package:
     file: lib/Devel/Cover/Report/Clover/Package.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::PackageFile:
     file: lib/Devel/Cover/Report/Clover/Package.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::Project:
     file: lib/Devel/Cover/Report/Clover/Project.pm
+    version: '1.01'
   Devel::Cover::Report::Clover::Reportable:
     file: lib/Devel/Cover/Report/Clover/Reportable.pm
+    version: '1.01'
 recommends:
   Test::MockTime: '0'
 requires:
@@ -59,4 +68,4 @@ resources:
   homepage: https://github.com/captin411/devel-cover-report-clover
   license: http://dev.perl.org/licenses/
   repository: https://github.com/captin411/devel-cover-report-clover.git
-version: '1.00'
+version: '1.01'

@@ -7,6 +7,8 @@ use Devel::Cover::Report::Clover::FileRegistry;
 use strict;
 use warnings;
 
+our $VERSION = "1.01";
+
 use base qw(Class::Accessor);
 __PACKAGE__->mk_ro_accessors(qw(db));
 __PACKAGE__->mk_accessors(qw(name file_registry project include_condition_criteria ));

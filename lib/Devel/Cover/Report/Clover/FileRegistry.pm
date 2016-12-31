@@ -1,6 +1,7 @@
 package Devel::Cover::Report::Clover::FileRegistry;
 use strict;
 use warnings;
+our $VERSION = "1.01";
 use Devel::Cover::Report::Clover::File;
 use Devel::Cover::Report::Clover::Package;
 use base qw(Class::Accessor);

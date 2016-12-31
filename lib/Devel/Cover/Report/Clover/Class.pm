@@ -1,6 +1,7 @@
 package Devel::Cover::Report::Clover::Class;
 use strict;
 use warnings;
+our $VERSION = "1.01";
 use base qw(Devel::Cover::Report::Clover::Reportable);
 __PACKAGE__->mk_accessors(qw( name package file_fragment ));
 

@@ -1,6 +1,7 @@
 package Devel::Cover::Report::Clover::Project;
 use strict;
 use warnings;
+our $VERSION = "1.01";
 use base qw(Devel::Cover::Report::Clover::Reportable);
 
 sub report {

@@ -1,6 +1,7 @@
 package Devel::Cover::Report::Clover::Reportable;
 use strict;
 use warnings;
+our $VERSION = "1.01";
 use base qw(Class::Accessor);
 __PACKAGE__->mk_accessors(qw(builder name));
 

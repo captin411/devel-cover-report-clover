@@ -1,6 +1,7 @@
 package Devel::Cover::Report::Clover::File;
 use strict;
 use warnings;
+our $VERSION = "1.01";
 use base qw(Devel::Cover::Report::Clover::Reportable);
 
 use overload '""' => \&to_string, fallback => 1;
@@ -257,6 +258,7 @@ sub to_string {
 1;
 
 package Devel::Cover::Report::Clover::FileFragment;
+our $VERSION = "1.01";
 use base qw(Devel::Cover::Report::Clover::File);
 __PACKAGE__->mk_accessors(qw(line_start line_end package_limit));
 

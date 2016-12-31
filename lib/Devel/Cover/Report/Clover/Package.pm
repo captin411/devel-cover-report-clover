@@ -1,6 +1,7 @@
 package Devel::Cover::Report::Clover::Package;
 use strict;
 use warnings;
+our $VERSION = "1.01";
 use Devel::Cover::Criterion;
 use base qw(Devel::Cover::Report::Clover::Reportable);
 __PACKAGE__->mk_accessors(qw(classes));
@@ -105,6 +106,7 @@ sub ncloc {
 package Devel::Cover::Report::Clover::PackageFile;
 use strict;
 use warnings;
+our $VERSION = "1.01";
 use Devel::Cover::Criterion;
 use File::Spec;
 use base qw(Devel::Cover::Report::Clover::Reportable);
